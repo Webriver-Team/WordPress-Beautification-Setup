@@ -1,0 +1,155 @@
+/* Input CSS */
+
+/* autoprefixer grid: autoplace */
+
+.autoplacement-example {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto auto;
+	grid-gap: 20px;
+}
+
+.example {
+	/* various options, see e.g. http://www.css3files.com/background */
+	background: url(image1.png), url(image2.png), url(image3.png) #fff;
+	background-clip: border-box;
+	/*
+	For the not-yet-standard value of ‘text’ WebKit and Edge need -webkit-!
+	Firefox supports ‘text’ without prefixes:
+	*/
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-origin: padding-box;
+	background-size: cover;
+}
+
+.example {
+	transform: rotate(30deg); /* IE 10, Fx 16+, Op 12.1+  */
+}
+
+.input-element {
+	appearance: none;
+}
+.example {
+	-webkit-flow-from: flow_name; /* Ch 15.0-18.0 (no further!) */
+}
+
+.example {
+	column-count: 2; /* IE 10, Op 11.1+ */
+	column-gap: 10px;
+	column-rule: 1px solid #000;
+}
+
+.example {
+	-webkit-mask-image: url(mask.png); /* Ch 4.0-16, Saf 4.0-6.0, And 2.1-4.2, BB 7.0-10.0 */
+}
+
+.example {
+	/* From: http://vlst.nl/x/e2 */
+	word-break: break-all;
+
+	/* Non standard for webkit */
+	word-break: break-word;
+	hyphens: auto; /* None yet */
+}
+
+.example-grid-wrapper {
+	display: -ms-grid; /* IE 10 */
+	display: grid; /* None yet */
+
+	/*
+	Woah! TODO: look into this.
+	If somebody can provide a quick _simple_ example ;)
+	*/
+}
+
+.example {
+	font-feature-settings: "liga", "dlig"; /* IE 10, Saf 4.0-6.0 */
+}
+.page-wrap {
+	display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+	display: -ms-flexbox; /* TWEENER - IE 10 */
+	display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+	display: flex; /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+.main-nav,
+.main-sidebar {
+	width: 20%; /* For old syntax, otherwise collapses. */
+	flex: 1; /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+.example {
+	filter: grayscale(50%); /* FF 35+ */
+}
+
+.example {
+	-webkit-box-reflect: below 5px url(mask.png); /* Ch, Saf (+iOs +BB) */
+}
+
+@keyframes MyAnimation {
+	0% {
+		left: 0;
+	}
+	50% {
+		left: 200px;
+	}
+	100% {
+		left: 20px;
+	}
+}
+
+.example.is-animating {
+	animation: MyAnimation 2s; /* IE >9, Fx >15, Op >12.0 */
+}
+
+h1,
+.heading-1,
+h2,
+.heading-2,
+h3,
+.heading-3,
+h4,
+.heading-4,
+h5,
+.heading-5 h6,
+.heading-6 {
+	@include font(rbt, reg);
+	margin: 0 0 2.5rem 0;
+	text-transform: initial;
+	color: map-get($colors, dgray);
+	clear: both;
+	line-height: 1.1;
+}
+
+h1,
+.heading-1 {
+	@include font-size(5.6);
+	line-height: 1;
+	margin-bottom: 2.5rem;
+}
+
+h2,
+.heading-3 {
+	@include font-size(5.2);
+}
+
+h3,
+.heading-3 {
+	@include font-size(2.8);
+}
+
+h4,
+.heading-4 {
+	@include font-size(2.2);
+}
+
+h5,
+.heading-5 {
+	@include font-size(2);
+}
+
+h6,
+.heading-6 {
+	@include font-size(1.8);
+}
