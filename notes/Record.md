@@ -32,6 +32,8 @@
 	],
 ```
 * [ ] The Head and Body tag don't get indented as child of HTML tag. That causes issues of tab for linthtmlrc. Currently `"indent-width": 0` is set to 0 to avoid error on any level.
+* [ ] How to format all files that start with `.` for example `.eslintrc`, `.prettiersrc` etc
+* [ ] Add [Stickler](https://stickler-ci.com/docs) into github repo as a check when repo is pushed.
 
 ## Ligatures
 
@@ -56,7 +58,21 @@
 * [X] ~~*Ignore ***dist/*** form prettier being styled*~~ [2021-11-11]
 * [X] ~~*Ignore ***test-fixtures/*** form prettier being styled*~~ [2021-11-11]
 * [X] ~~*Ignore ***node_modules/*** form prettier being styled*~~ [2021-11-11]
+* [X] ~~*Create the `.prettierrc` file*~~ [2021-11-15]
+* [X] ~~*Set values for the options of Prettier [Options](https://prettier.io/docs/en/options.html)*~~ [2021-11-15]
 
+### CSS / SCSS
+
+These are set of rules that are required as WordPress coding standards.
+
+* [X] ~~*Use tabs, not spaces, to indent each property.*~~ [2021-11-15]
+* [X] ~~*Add two blank lines between sections and one blank line between blocks in a section.*~~ [2021-11-15]
+* [X] ~~*Each selector should be on its own line*~~ [2021-11-15]
+* [X] ~~*Each selector should be ending in either a comma or an opening curly brace*~~ [2021-11-15]
+* [X] ~~*Property-value pairs should be on their own line*~~ [2021-11-15]
+* [ ] Property-value pairs should be with one tab of indentation (Currently one space is being added by Prettier)
+* [X] ~~*Property-value pairs should be have an ending semicolon*~~ [2021-11-15]
+* [X] ~~*The closing brace should be flush left, using the same level of indentation as the opening selector*~~ [2021-11-15]
 
 ## Matching Bracket Colours
 
@@ -68,7 +84,7 @@
 * [X] ~~*Add `@linthtml/linthtml` using npm packages and saving it into package.json file.  `npm install @linthtml/linthtml --save-dev`*~~ [2021-11-11]
 * [X] ~~*Add `.linthtmlrc` file to project using:*~~ [2021-11-11]
   * npx linthtml --init
-  * Javsscript
+  * Javascript
   * Legacy (inherited from HTMLLint)
 
 ### HTML Test file
@@ -313,3 +329,10 @@
 	* [X] ~~*HTML Example of Good & Bad code noted in html test file*~~ [2021-11-15]
 	* [X] ~~*Rule applied in `.linthtmlrc` file*~~ [2021-11-15]
 	* [ ] Rule tested in html test file
+
+
+## ESLint
+
+* [ ] Create eslintrc file.
+* [ ] Install [Eslint Config Prettier](https://github.com/prettier/eslint-config-prettier#installation)
+* [ ] Configure Eslint Config Prettier so that it doesn't conflicts with prettier configurations.

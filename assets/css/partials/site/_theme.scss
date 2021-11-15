@@ -1,7 +1,7 @@
 /****
- *
- * body
- *
+*
+* body
+*
 ****/
 body {
 	@include font(open, reg, family weight);
@@ -38,9 +38,9 @@ a {
 }
 
 /****
- *
- * containers
- *
+*
+* containers
+*
 ****/
 
 .big-wrapper {
@@ -67,18 +67,18 @@ a {
 }
 
 /****
- *
- * Valign-wrapper Style
- *
- ****/
+*
+* Valign-wrapper Style
+*
+****/
 .valign-wrapper {
 	display: flex;
 	align-items: center;
 }
 /****
- *
- * helper classes
- *
+*
+* helper classes
+*
 ****/
 .black-text {
 	color: map-get($colors, black) !important;
@@ -94,9 +94,9 @@ a {
 }
 
 /****
- *
- * breadcrumbs
- *
+*
+* breadcrumbs
+*
 ****/
 #breadcrumbs {
 	color: map-get($colors, la-blue70);
@@ -143,9 +143,9 @@ a {
 }
 
 /****
- *
- * buttons
- *
+*
+* buttons
+*
 ****/
 a.button,
 a.button:visited {
@@ -169,9 +169,9 @@ a.button:visited {
 }
 
 /****
- *
- * 404 page
- *
+*
+* 404 page
+*
 ****/
 .not-found {
 	text-align: center;
@@ -183,7 +183,11 @@ a.button:visited {
 	margin: 2rem 0;
 	width: 100%;
 
-	.menu {
+	.menu,
+	.menu2,
+	.menu2,
+	.menu2,
+	.menu2 {
 		margin: 0;
 	}
 
@@ -192,20 +196,22 @@ a.button:visited {
 		margin: 0 0 0 20px;
 		font-weight: 700;
 		padding: 0;
-
-		&:before {
+		&:before,
+		&:after {
 			display: none;
 		}
 
 		a {
 			padding: 1rem;
 			border-bottom: 0px;
-
-			&:hover {
+			&:hover,
+			&:active {
 				color: map-get($colors, black);
+				&:focus {
+					color: red;
+				}
 			}
 		}
-
 		ul {
 			display: none;
 		}
@@ -259,4 +265,53 @@ a.button:visited {
 
 .s-30 {
 	height: 30px;
+}
+.test,
+.test,
+.test,
+.test,
+.test,
+.test,
+.test,
+.test,
+.test,
+.test,
+.test,
+.test,
+.test,
+.test,
+.test,
+.test {
+	background: url("../images") no-repeat center center;
+}
+
+.text {
+	.text {
+		.text {
+			.text {
+				.text {
+					.text {
+						.text {
+							.text {
+								.text {
+									.text {
+										.text {
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.my_custom_class {
+	.hasAnotherClass {
+		.InsideIt {
+			display: none;
+		}
+	}
 }
