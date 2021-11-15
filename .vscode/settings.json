@@ -71,7 +71,7 @@
 	"[php]": {
 		"editor.formatOnSave": false,
 		"editor.formatOnPaste": false,
-		"editor.defaultFormatter": "rifi2k.format-html-in-php",
+		"editor.defaultFormatter": "HookyQR.beautify",
 	},
 	// PHP CS
 	"phpcs.enable": true,

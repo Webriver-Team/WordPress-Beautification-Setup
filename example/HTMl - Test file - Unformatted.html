@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+</head>
+
+<body>
+	<!-- Specify a list of disallowed HTML attributes. -->
+	<!-- "attr-bans" -->
+	<!-- Invalid HTML -->
+	<p align="left">Content</p>
+	<div bgcolor="red">Content</div>
+	<!-- Valid HTML -->
+	<p class="text-center">Content</p>
+	<!-- attr-name-style -->
+	<!-- If set, HTML attributes names must conform to the given format. -->
+	<!-- The following patterns are considered violations: -->
+	<div attrName=""></div>
+	<div attr_name=""></div>
+	<!-- The following patterns are not considered violations: -->
+	<div attr-name=""></div>
+	<!-- attr-no-unsafe-char -->
+	<!-- If set, unsafe characters may not be used in attribute values. The unsafe characters are those whose unicode values lie in the ranges 0000-0009, 000b-000c, 000e-001f, 007f-009f, 00ad, 0600-0604, 070f, 17b4, 17b5, 200c-200f, 2028-202f, 2060-206f, feff, fff0-ffff..: -->
+	<!-- The following patterns are considered violations: -->
+	<button class="\u2013"></button>
+	<!-- The following patterns are not considered violations: -->
+	<button class="foo"></button>
+	<!-- attr-new-line -->
+	<!-- If set, no more than this number of attributes may be on the same row.: -->
+	<!-- The following patterns are considered violations: -->
+	<!-- Currently set to at least one on a line only including first -->
+	<button class="foo" id="bar"></button>
+	<!-- attr-no-dup -->
+	<!-- Disallow duplications of HTML attributes within the same tag.: -->
+	<!-- The following patterns are considered violations: -->
+	<a href="index.html" href="about.html">Link</a>
+	<!-- The following patterns are not considered violations: -->
+	<a href="index.html">Link</a>
+	<!-- attr-order -->
+	<!-- Specify the order of Class & ID attributes in HTML tag. -->
+	<!-- The following patterns are considered violations: -->
+	<button class="foo" id="bar"></button>
+	<!-- The following patterns are not considered violations: -->
+	<button id="foo" class="bar"></button>
+	<!-- attr-quote-style -->
+	<!-- Enforce the consistent use of quotes across code. -->
+	<!-- The following patterns are considered violations: -->
+	<button id='foo' class='bar'></button>
+	<!-- The following patterns are not considered violations: -->
+	<button class="foo" id="bar"></button>
+	<!-- attr-req-value -->
+	<!-- If set, attribute values cannot be empty.. -->
+	<!-- The following patterns are considered violations: -->
+	<button id=></button>
+	<button id=""></button>
+	<button id=class="bar"></button>
+	<button class></button>
+	<!-- The following patterns are not considered violations: -->
+	<button class="foo"></button>
+	<button disabled></button>
+	<!-- attr-validate -->
+	<!-- If set, attributes in a tag must be well-formed... -->
+	<!-- The following patterns are considered violations: -->
+	<div id=></div>
+	<div class="large id=" title"></div>
+	<div class=="a"></div>
+	<!-- The following patterns are not considered violations: -->
+	<div class="foo"></div>
+	<div disabled></div>
+	<!-- button-req-content -->
+	<!-- See WCAG rule 78: Each button element must contain content.... -->
+	<!-- The following patterns are considered violations: -->
+	<button></button>
+	<button> </button>
+	<button><span><span></span></span></button>
+	<button aria-label=""></button>
+	<!-- The following patterns are not considered violations: -->
+	<button>Click me</button>
+	<button><span><strong>Click</strong> me</span></button>
+	<button aria-label="Click me"></button>
+	<!-- class-no-dup -->
+	<!-- Disallow the duplication of a classname inside the `class` attribute.... -->
+	<!-- The following patterns are considered violations: -->
+	<div class="foo bar foo"></div>
+	<div class="bar bar"></div>
+	<!-- The following patterns are not considered violations: -->
+	<div class="foo bar"></div>
+	<!-- class-style -->
+	<!-- Specify a format for the classnames inside the class attribute, when set all classnames must fit the format.... -->
+	<!-- The following patterns are considered violations: -->
+	<button class="buttonBlue"></button>
+	<button class="button_blue"></button>
+	<!-- The following patterns are not considered violations: -->
+	<button class="button-blue"></button>
+	<button class="button--blue"></button>
+
+	<!-- doctype-first -->
+	<!-- If set, the first element in the file must be <!DOCTYPE ... > (excluding comments and whitespace)..... -->
+	<!-- The following patterns are considered violations: -->
+	<!-- Example 1 -->
+	<!-- <html>
+
+	<head> ... </head>
+
+	<body> ... <boby>
+
+	</html> -->
+	<!-- Example 2 -->
+	<!-- <html>
+
+	<head> ... </head>
+
+	<body> ... <boby>
+	<html>
+	<!DOCTYPE html> -->
+	<!-- The following patterns are not considered violations: -->
+	<!-- <!DOCTYPE html>
+	<html>
+
+	<head> ... </head>
+
+	<body> ... <boby>
+
+	</html> -->
+
+
+	<!-- doctype-html5 -->
+	<!-- If set, the doctype should be HTML5 one..... -->
+	<!-- The following patterns are considered violations: -->
+	<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" \n"http://www.w3.org/TR/html4/strict.dtd"> -->
+
+	<!-- The following patterns are not considered violations: -->
+	<!-- <!DOCTYPE html> -->
+
+
+	<!-- fieldset-contains-legend -->
+	<!-- WCAG rule 73: Each fieldset element should contain a legend element...... -->
+	<!-- The following patterns are considered violations: -->
+	<!-- Example 1 -->
+	<fieldset></fieldset>
+
+	<!-- Example 2 -->
+	<fieldset>
+		<h3>Legend</h3>
+	</fieldset>
+
+	<!-- The following patterns are not considered violations: -->
+	<fieldset>
+		<legend>Foo</legend>
+	</fieldset>
+
+	<!-- fig-req-figcaption -->
+	<!-- Enforce the presence of the tag `<figcaption>` inside a `<figure>` tag...... -->
+	<!-- The following patterns are considered violations: -->
+	<!-- Example 1 -->
+	<figure>
+		<img src="image.jpg" alt="" />
+		<h2>Legend</h2>
+	</figure>
+
+	<!-- Example 2 -->
+	<div>
+		<img src="image.jpg" alt="" />
+		<figcaption>Legend</ficaption>
+	</div>
+
+	<!-- The following patterns are not considered violations: -->
+	<figure>
+		<img src="image.jpg" alt="" />
+		<figcaption>Legend</figcaption>
+	</figure>
+
+
+	<!-- focusable-tabindex-style -->
+	<!-- If set, all focusable elements must have a negative or 0 tabindex attribute, if any....... -->
+	<!-- The following patterns are considered violations: -->
+	<button tabindex="1">Button</button>
+	<a href="#" tabindex="12">Link</a>
+
+	<!-- The following patterns are not considered violations: -->
+	<button tabindex="0">Button</button>
+	<a href="#" tabindex="-1">Link</a>
+
+	<!-- head-req-title -->
+	<!-- If set, all focusable elements must have a negative or 0 tabindex attribute, if any....... -->
+	<!-- The following patterns are considered violations: -->
+	<head>
+		<title></title>
+	</head>
+
+	<head>
+	</head>
+	<!-- The following patterns are not considered violations: -->
+	<head>
+		<title>Title</title>
+	</head>
+
+	<!-- head-valid-content-model -->
+	<!-- If set, all focusable elements must have a negative or 0 tabindex attribute, if any....... -->
+	<!-- The following patterns are considered violations: -->
+	<head>
+		<div>Content</div>
+	</head>
+
+	<head>
+		<button>A button</button>
+	</head>
+
+	<!-- The following patterns are not considered violations: -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>Title</title>
+		<link rel="icon" type="image/png" href="/favicon.ico">
+	</head>
+
+	<!-- href-style -->
+	<!-- If set, the content of the href attribute must follow the specified format........ -->
+	<!-- The following patterns are considered violations for "href-style": [true, "relative"]: -->
+	<a href="https://github.com/">Link</a>
+	<a href="http://localhost:4200/">Link</a>
+
+	<!-- The following patterns are not considered violations: -->
+	 <a href="/page">Link</a>
+
+	<!-- html-req-lang -->
+	<!-- If set, each html tag must have a lang attribute......... -->
+	<!-- The following patterns are considered violations -->
+	<html lang=""></html>
+	<html></html>
+
+	<!-- The following patterns are not considered violations: -->
+	<html lang="FR" ></html>
+
+	<!-- html-valid-content-model -->
+	<!-- If set, the content-model of the html element will be enforced: at most one head and one body tag may appear, in that order. No other tags are allowed........... -->
+	<!-- The following patterns are considered violations -->
+	<!-- Example 1 -->
+	<!-- <html>
+		<head>
+		...
+		</head>
+		<main>
+		...
+		<main>
+	</html> -->
+
+	<!-- Example 2 -->
+	<!-- <html>
+		<body>
+		...
+		<body>
+		<head>
+		...
+		</head>
+		</html>
+	</body> -->
+
+	<!-- The following patterns are not considered violations: -->
+	<!-- <html>
+		<head>
+		...
+		</head>
+		<body>a
+		...
+		<boby>
+	</html> -->
+
+
+	<!-- id-no-dup -->
+	<!-- Disallow the duplication of an id inside an html file.......... -->
+	<!-- The following patterns are considered violations -->
+	<div id="foo"></div>
+	<div id="foo"></div>
+
+	<div id="foo">
+		<div id="foo"></div>
+	</div>
+
+	<!-- The following patterns are not considered violations: -->
+	<div id="foo"></div>
+	<div id="bar"></div>
+
+
+	<!-- id-style -->
+	<!-- Specify a format for the value inside the id attribute, when all set all ids must fit the format -->
+	<!-- The following patterns are considered violations for "id-style": ["error", "dash"] -->
+	<button id="buttonBlue"></button>
+	<button id="button--blue"></button>
+
+	<!-- The following patterns are not considered violations: -->
+	<button id="button_blue"></button>
+
+
+	<!-- img-req-alt -->
+	<!-- This rule is to ensure that all <img> elements have an alt attribute specified. WCAG Suggestion H37 ......... -->
+	<!-- The following patterns are considered violations -->
+	<img src="cat.png">
+
+	<!-- The following patterns are not considered violations: -->
+	<img src="cat.png" alt="picture of cat">
+
+
+	<!-- indent-style -->
+	<!-- Enforce consistent indentation style for "indent-style": [true, "tabs"].. ......... -->
+	<!-- The following patterns are considered violations -->
+	/*space*//*space*/<button id="buttonBlue"></button>
+
+	<!-- The following patterns are not considered violations: -->
+	/*tab*/<button id="buttonBlue"></button>
+
+
+	<!-- indent-width -->
+	<!-- Enforce consistent indentation style for "indent-size": tabs and 1.. ......... -->
+	<!-- The following patterns are considered violations -->
+	/*space*/<button id="buttonBlue"></button>
+
+	<div><p>foo</p>
+	</div>
+
+	<div>
+	</div>
+
+	<div><p>foo</p>
+	<p>foo</p>
+	</div>
+
+	<!-- The following patterns are not considered violations: -->
+	/*space*//*space*/<button id="buttonBlue"></button>
+
+	<div><p>foo</p></div>
+
+	<div>
+	</div>
+
+	<div>
+		<p>foo</p>
+	</div>
+
+	<div>
+		<p>foo</p><p>foo</p>
+		<p>foo</p>
+	</div>
+
+	<!-- input-btn-req-value-or-title -->
+	<!-- A rule from WCAG http://oaa-accessibility.org/wcag20/rule/77/ Input elements where type=[button|submit|reset] must have a value or title attribute.  ......... -->
+	<!-- The following patterns are considered violations -->
+	<input type="button">
+	<input type="submit">
+	<input type="reset">
+
+	<input type="button" aria-label="">
+	<input type="button" value="">
+	<input type="button" title="">
+
+	<!-- The following patterns are not considered violations: -->
+	<input type="button" aria-label="Click me">
+	<input type="submit" value="Submit">
+	<input type="reset" title="reset">
+
+
+	<!-- input-radio-req-name -->
+	<!-- If set, each radio-type input must have a nonempty name attribute.  ......... -->
+	<!-- The following patterns are considered violations -->
+	<input type="radio">
+	<input type="radio" name>
+	<input type="radio" name="">
+
+	<!-- The following patterns are not considered violations: -->
+	<input type="radio" name="hello">
+
+	<!-- input-req-label -->
+	<!-- if set, each input elements must have an associated label element.  ......... -->
+	<!-- The following patterns are considered violations -->
+	<!-- <div>
+		<label>
+			<div>
+				<input type="text" value="great">
+			</div>
+		</label>
+	</div>
+	<div>
+		<label>
+			<div>
+				<input type="radio" value="great" >
+			</div>
+		</label>
+	</div>
+	<input type="text" value="great" >
+	<input type="radio" value="great" >
+	<div>
+	<label for="dinosaur">Label!</label>
+	</div>
+	<section>
+	<input type="text" name="romeo">
+	</section>
+	<div>
+	<label for="dinosaur">Label!</label>
+	</div>
+	<section>
+	<input type="text" id="romeo">
+	</section> -->
+
+	<!-- The following patterns are not considered violations: -->
+	<!-- <div>
+		<label for="dinosaur">Label!</label>
+	</div>
+
+	<section>
+		<input type="text" name="dinosaur">
+	</section>
+
+	<div>
+		<label for="dinosaur">Label!</label>
+	</div>
+
+	<section>
+		<input type="radio" id="dinosaur">
+	</section> -->
+
+	<!-- label-no-enc-textarea-or-select -->
+	<!-- A rule from WCAG http://oaa-accessibility.org/wcag20/rule/74/. The label element should not encapsulate select and textarea elements..  ......... -->
+	<!-- The following patterns are considered violations -->
+	<!-- <label>
+		<select>
+			<option value="v1">V1</option>
+			<option value="v2">V2</option>
+			<option value="v3">V3</option>
+		</select>
+	</label>
+
+	<label>
+		<textarea></textarea>
+	</label>
+
+	<label>
+		<div>
+			<div>
+				<select>
+					<option value="v1">V1</option>
+					<option value="v2">V2</option>
+					<option value="v3">V3</option>
+				</select>
+			</div>
+		</div>
+	</label> -->
+
+	<!-- The following patterns are not considered violations: -->
+	<!-- <label for="select">Foo</label>
+		<select id="select">
+	<option value="bar">Bar</option>
+	</select>
+
+	<label for="textarea">Fizz</label>
+	<textarea id="textarea"></textarea> -->
+
+
+	<!-- label-req-for -->
+	<!-- If set, each label tab must have a for attribute..  ......... -->
+	<!-- The following patterns are considered violations -->
+	<!-- <label>
+		<input type="text" id="thing"/>
+	</label>
+
+	<label for="noexist">
+		<input type="text" id="thing"/>
+	</label>
+
+	<label>
+		<p>not labeable</p>
+	</label>
+
+	<div>
+		<label for="para"></label>
+		<div id="para"></div>
+	</div> -->
+
+	<!-- The following patterns are not considered violations: -->
+	<!-- <label for="thing">The Thing</label>
+	<input type="text" id="thing"/>
+
+	<label for="thing">
+		<input type="text" id="thing"/>
+	</label> -->
+
+	<!-- lang-style -->
+	<!-- If set, the lang tag must have a valid form (xx-YY, where xx is a valid language code and YY is a valid country code)..  ......... -->
+	<!-- The following patterns are considered violations -->
+	<!-- <html lang="" ></html>
+	<html lang="fr" ></html> -->
+
+	<!-- The following patterns are not considered violations: -->
+	<!-- <html lang="FR" ></html> -->
+
+
+	<!-- line-end-style -->
+	<!-- Line endings must conform to the given style..  ......... -->
+	<!-- The following patterns are considered violations -->
+	We must use the UNIX based LF line endings not the Windows based CRLF line endings.
+
+	<!-- line-no-trailing-whitespace -->
+	<!-- If set, lines may not end with whitespace characters...  ......... -->
+
+
+	<!-- link-min-length-4 -->
+	<!-- A rule from WCAG http://oaa-accessibility.org/wcag20/rule/38/. Report errors if link's text content is less than 4 characters long...  ......... -->
+	<!-- The following patterns are considered violations -->
+	<a>A</a>
+	<a aria-label="A"></a>
+
+	<!-- The following patterns are not considered violations: -->
+	<a>A link</a>
+	<a aria-label="A link"></a>
+
+
+	<!-- link-req-noopener -->
+	<!-- If set, each a tag with target="_blank" must have a rel="noopener" or rel="noreferrer" attribute.....  ......... -->
+	<!-- The following patterns are considered violations -->
+	<a href='link' target="_blank">A link</a>
+
+	<!-- The following patterns are not considered violations: -->
+	<a href='link' target="_blank" rel="noopener">A link</a>
+	<a href='link' target="_blank" rel="noreferrer">A link</a>
+
+
+
+	<!-- spec-char-escape -->
+	<!-- f set, special characters in text and attributes (e.g. >) must be escaped.. ......... -->
+	<!-- The following patterns are considered violations -->
+	<p>Hello & world</p>
+	<p id="mine&ours" class="yours>mine">Hello world</p>
+	<p id="john&*;paul&;ringo&george^">Hello world</p>
+
+	<!-- The following patterns are not considered violations: -->
+	<p class="foo\&bar">Hello world</p>
+	<p class="foo bar">Hello \& world</p>
+
+
+	<!-- table-req-caption -->
+	<!-- If set, each table must contain at least one caption tag... ......... -->
+	<!-- The following patterns are considered violations -->
+	<table></table>
+
+	<table>
+		<span>Caption</span>
+	</table>
+
+	<table>
+		<td>
+		<caption>Hello</caption>
+		</td>
+	</table>
+
+	<table></table>
+	<caption>Hello</caption>
+
+	<!-- The following patterns are not considered violations: -->
+	<table>
+		<thead><thead>
+		<tbody></tbody>
+		<caption>Hello</caption>
+	</table>
+
+	<table>
+		<caption>Hello</caption>
+		<thead><thead>
+		<tbody></tbody>
+	</table>
+	<table>
+		<caption>Hello</caption>
+	</table>
+
+	<!-- table-req-header -->
+	<!-- If set, each table tag must contain a header: a thead tag or a tr tag with a th child.... ......... -->
+	<!-- The following patterns are considered violations -->
+	<table></table>
+
+	<table>
+		<tr>
+		<td>
+		</td>
+		</tr>
+	</table>
+
+	<table>
+		<tbody>
+		</tbody>
+	</table>
+
+	<!-- The following patterns are not considered violations: -->
+	<table>
+		<thead>
+		</thead>
+	</table>
+
+	<table>
+		<tr>
+		<th>
+		</th>
+		</tr>
+	</table>
+
+
+	<!-- tag-bans -->
+	<!-- The value of this option is a list of strings, each of which is a tag name. Tags with any of the given names are disallowed..... ......... -->
+	<!-- The following patterns are considered violations -->
+	<center>Hello & world</center>
+
+	<!-- The following patterns are not considered violations: -->
+	<p>Hello & world</p>
+
+	<!-- tag-close -->
+	<!-- If set, tags must be closed...... ......... -->
+	<!-- The following patterns are considered violations -->
+	<div>
+		<p> content......</p>
+	<div>
+
+	<!-- The following patterns are not considered violations: -->
+	<div>
+		<p> content......</p>
+	</div>
+
+	<!-- tag-name-lowercase -->
+	<!-- If set, tag names must be lowercase...... ......... -->
+	<!-- The following patterns are considered violations -->
+	<Button>A button</button>
+
+	<!-- The following patterns are not considered violations: -->
+	<button>A button</button>
+
+	<!-- tag-name-match -->
+	<!-- If set, tag names must match (including case)....... ......... -->
+	<!-- The following patterns are considered violations -->
+	<body></Body>
+
+	<!-- The following patterns are not considered violations: -->
+	<body></body>
+
+	<!-- tag-req-attr -->
+	<!-- If set, specified attributes should be present on the specified tag........ ......... -->
+	<!-- if set to
+	{
+	"tag-req-attr": [
+		true,
+		{
+		"img": [
+			{
+			"name": "src"
+			},
+			{
+			"name": "alt"
+			}
+		]
+		}
+	]
+	} then the following are considered  violations: -->
+	<!-- The following patterns are considered violations -->
+	<img/>
+	<img src="link"/>
+	<img alt="No image">
+
+	<!-- The following patterns are not considered violations: -->
+	<img alt="Picture of a cute cat" src="https://imgur.com/gallery/HzG2YW8"/>
+
+	<!-- tag-name-match -->
+	<!-- Define how void element must be closed........ ......... -->
+	<!-- "always": Void elements must be self-closed with / (xhtml style).',  -->
+	<!-- "never": Void elements must not be self-closed with / (html5 style)..',  -->
+	The void elements are <code>area</code>, <code>base</code>, <code>br</code>, <code>col</code>, <code>embed</code>, <code>hr</code>, <code>img</code>, <code>input</code>, <code>keygen</code>, <code>link</code>, <code>menuitem</code>, <code>meta</code>, <code>param</code>, <code>source</code>, <code>track</code> and <code>wbr</code>.
+
+	<!-- title-max-len -->
+	<!-- The value is either false or a nonnegative integer. If nonzero, the length of the text in the <title> tag must not exceed the given value....... ......... -->
+
+
+	<!-- title-no-dup -->
+	<!-- If set, the <title> tag must not appear twice in the head........ ......... -->
+	<!-- The following patterns are considered violations -->
+	<head>
+		<title>Page title</title>
+		<title>Page title</title>
+	</head>
+
+	<!-- The following patterns are not considered violations: -->
+	<head>
+		<title>Page title</title>
+	</head>
+
+</body>
+
+</html>

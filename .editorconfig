@@ -24,6 +24,7 @@ end_of_line = lf
 # File Extension Settings
 ##########################################
 
+
 # Visual Studio Solution Files
 [*.sln]
 indent_style = tab
@@ -65,6 +66,11 @@ end_of_line = lf
 # Makefiles
 [Makefile]
 indent_style = tab
+
+# NPM packges file
+[package.json]
+indent_style = space
+indent_size = 2
 
 ##########################################
 # Default .NET Code Style Severities

@@ -53,12 +53,13 @@ $basethemevar_error_search = (isset($option_fields['basethemevar_error_search'])
 		<div class="wrapper">
 			<section class="error-404 not-found">
 				<div class="page-content">
-				<?php if ( $basethemevar_error_text ) { ?>
-						<?php echo $basethemevar_error_text; ?>
-					<?php } ?>
-					<?php if ( $basethemevar_error_menu ) { ?>
+				<?php
+					if ( $basethemevar_error_text ) {
+						echo $basethemevar_error_text;
+					}
+					if ( $basethemevar_error_menu ) { ?>
 						<div class="error">
-						<?php echo $basethemevar_error_menu; ?>
+							<?php echo $basethemevar_error_menu; ?>
 						</div>
 					<?php } ?>
 					<div class="clear"></div>
