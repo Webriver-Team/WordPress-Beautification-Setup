@@ -8,9 +8,9 @@
  * @since 1.0.0
  */
 
-// Global variables
+// Global variables.
 global $option_fields;
-global $pID;
+global $p_id;
 global $fields;
 
 ?>
@@ -20,13 +20,15 @@ global $fields;
 		<a href="<?php the_permalink(); ?>">
 			<?php if ( has_post_thumbnail() ) { ?>
 				<div class="post-featured-thumb">
-					<?php the_post_thumbnail(
+					<?php
+					the_post_thumbnail(
 						'thumb_600',
 						array(
 							'alt'   => get_the_title(),
 							'title' => get_the_title(),
 						)
-					); ?>
+					);
+					?>
 				</div>
 			<?php } else { ?>
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/admin/defaults/default-image.webp"  class="" alt="<?php get_the_title(); ?>" title="<?php get_the_title(); ?>">

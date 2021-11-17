@@ -6,33 +6,32 @@
  *
  * @package BaseTheme Package
  * @since 1.0.0
- *
  */
 
- // Global variables
+ // Global variables.
 global $option_fields;
-global $pID;
+global $p_id;
 global $fields;
-$pID = get_the_ID();
+$p_id      = get_the_ID();
 $author_id = $post->post_author;
 
 // Post ACf fields
 // Author profile image
-$basthemevar_author_avatar = get_field('basthemevar_author_avatar', 'user_'.$author_id);
-if(!$basthemevar_author_avatar){
-	$basthemevar_author_avatar =  get_avatar_url($author_id);
+$basthemevar_author_avatar = get_field( 'basthemevar_author_avatar', 'user_' . $author_id );
+if ( ! $basthemevar_author_avatar ) {
+	$basthemevar_author_avatar = get_avatar_url( $author_id );
 }
 
 // Get author name with fallback to display name
- if ( get_the_author_meta( 'first_name', $author_id ) || get_the_author_meta( 'last_name', $author_id ) ) {
+if ( get_the_author_meta( 'first_name', $author_id ) || get_the_author_meta( 'last_name', $author_id ) ) {
 	$basethemevar_author_name = get_the_author_meta( 'first_name', $author_id ) . ' ' . get_the_author_meta( 'last_name', $author_id );
-} else if ( get_the_author_meta( 'display_name', $author_id ) ) {
+} elseif ( get_the_author_meta( 'display_name', $author_id ) ) {
 	$basethemevar_author_name = get_the_author_meta( 'display_name', $author_id );
 }
 
 // Post Tags & Categories
-$basethemevar_post_tags = get_the_tags($pID);
-$basethemevar_post_categories = get_categories($pID);
+$basethemevar_post_tags       = get_the_tags( $p_id );
+$basethemevar_post_categories = get_categories( $p_id );
 
 ?>
 
@@ -44,18 +43,18 @@ $basethemevar_post_categories = get_categories($pID);
 		</div>
 		<div class="post-author-name">By: <?php echo $basethemevar_author_name; ?></div>
 	</div>
-	<?php if($basethemevar_post_tags){ ?>
+	<?php if ( $basethemevar_post_tags ) { ?>
 		<div class="post-tags">
-			<?php foreach ($basethemevar_post_tags as $tag ) { ?>
-				<a href="<?php echo get_tag_link($tag); ?>"><?php echo $tag->name; ?></a>
+			<?php foreach ( $basethemevar_post_tags as $tag ) { ?>
+				<a href="<?php echo get_tag_link( $tag ); ?>"><?php echo $tag->name; ?></a>
 			<?php } ?>
 		</div>
 		<!-- /.post-tags -->
 	<?php } ?>
-	<?php if($basethemevar_post_categories){ ?>
+	<?php if ( $basethemevar_post_categories ) { ?>
 		<div class="post-categories">
-			<?php foreach ($basethemevar_post_categories as $category ) { ?>
-				<a href="<?php echo get_category_link($category); ?>"><?php echo $category->name; ?></a>
+			<?php foreach ( $basethemevar_post_categories as $category ) { ?>
+				<a href="<?php echo get_category_link( $category ); ?>"><?php echo $category->name; ?></a>
 			<?php } ?>
 		</div>
 		<!-- /.post-categories -->

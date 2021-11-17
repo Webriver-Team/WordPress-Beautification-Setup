@@ -8,51 +8,49 @@
  * @since 1.0.0
  */
 
-// Include header.
+// Include header..
 get_header();
 
-// Global variables.
+// Global variables..
 global $option_fields;
-global $pID;
+global $p_id;
 global $fields;
 
 // Required if you want different search results style for separate CPT etc
 // $post_type = get_post_type();
 
- /**
+/**
  * Search Masthead
- *
  */
-	printf(
-		/* translators: %s: search term. */
-		esc_html__( 'Results for "%s"', 'basetheme_td' ),
-		'<span class="search-term">' . esc_html( get_search_query() ) . '</span>'
-	);
+printf(
+/* translators: %s: search term. */
+	esc_html__( 'Results for "%s"', 'basetheme_td' ),
+	'<span class="search-term">' . esc_html( get_search_query() ) . '</span>'
+);
 
 ?>
 
 <?php
 /**
  * Search Masthead End
- *
  */
- ?>
+?>
 
 <?php
-	if ( have_posts() ) {
-		while ( have_posts() ) {
-			the_post();
-				// Include specific template for the content
-				get_template_part( 'partials/content', 'archive-post' );
-			}
-		?>
-		<div class="clear"></div>
-		<?php
-	} else {
-
-		// If no content, include the "No posts found" template.
-		get_template_part( 'partials/content', 'none' );
+if ( have_posts() ) {
+	while ( have_posts() ) {
+		the_post();
+		// Include specific template for the content.
+		get_template_part( 'partials/content', 'archive-post' );
 	}
+	?>
+<div class="clear"></div>
+	<?php
+} else {
+
+	// If no content, include the "No posts found" template.
+	get_template_part( 'partials/content', 'none' );
+}
 ?>
 
 

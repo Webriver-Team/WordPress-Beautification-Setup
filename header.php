@@ -6,28 +6,27 @@
  *
  * @package BaseTheme Package
  * @since 1.0.0
- *
  */
 
-// Global variables
+// Global variables.
 global $option_fields;
-global $pID;
+global $p_id;
 global $fields;
 
-$pID = get_the_ID();
+$p_id = get_the_ID();
 
 if ( is_home() ) {
-	$pID = get_option( 'page_for_posts' );
+	$p_id = get_option( 'page_for_posts' );
 }
 
 if ( is_404() || is_archive() || is_category() || is_search() ) {
-	$pID = get_option( 'page_on_front' );
+	$p_id = get_option( 'page_on_front' );
 }
 
-if (function_exists('get_fields')) {
+if ( function_exists( 'get_fields' ) ) {
 	$option_fields = get_fields_escaped( 'option' );
-	// $fields        = get_fields( $pID );
-	$fields        = get_fields_escaped( $pID );
+	// $fields        = get_fields( $p_id );
+	$fields = get_fields_escaped( $p_id );
 }
 // Page Tags - Advanced custom fields variables
 $tracking = $option_fields['tracking_code'];
@@ -50,25 +49,30 @@ $bscripts = $option_fields['body_scripts'];
 
 	<?php
 		// Add Head Scripts
-		if ( $hscripts != '' ) {
-			echo $hscripts;
-		}
+	if ( $hscripts != '' ) {
+		echo $hscripts;
+	}
 	?>
 
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url( get_template_directory_uri()) ?>/assets/img/pwa/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url( get_template_directory_uri()) ?>/assets/img/pwa/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url( get_template_directory_uri()) ?>/assets/img/pwa/favicon-16x16.png">
-	<link rel="icon" sizes="any" href="<?php echo esc_url( get_template_directory_uri()) ?>/assets/img/pwa/favicon.ico">
-	<link rel="icon" type="image/svg+xml" href="<?php echo esc_url( get_template_directory_uri()) ?>/assets/img/pwa/icon.svg">
-	<link rel="manifest" href="<?php echo esc_url( get_template_directory_uri()) ?>/assets/img/pwa/site.webmanifest">
+	<link rel="apple-touch-icon" sizes="180x180"
+		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32"
+		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16"
+		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/favicon-16x16.png">
+	<link rel="icon" sizes="any"
+		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/favicon.ico">
+	<link rel="icon" type="image/svg+xml"
+		href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/icon.svg">
+	<link rel="manifest" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/pwa/site.webmanifest">
 
 	<script>
-		// Identifies the Browser type in the HTML tag for specific browser CSS
-		var doc = document.documentElement;
-		doc.setAttribute('data-useragent', navigator.userAgent);
-		doc.setAttribute("data-platform", navigator.platform);
+	// Identifies the Browser type in the HTML tag for specific browser CSS
+	var doc = document.documentElement;
+	doc.setAttribute('data-useragent', navigator.userAgent);
+	doc.setAttribute("data-platform", navigator.platform);
 	</script>
 	<?php
 		// Add Tracking Code
@@ -87,12 +91,13 @@ $bscripts = $option_fields['body_scripts'];
 	<?php wp_head(); ?>
 
 </head>
+
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
+	<?php wp_body_open(); ?>
 	<?php if ( $bscripts != '' ) { ?>
-		<div style="display: none;">
-			<?php echo $bscripts; ?>
-		</div>
+	<div style="display: none;">
+		<?php echo $bscripts; ?>
+	</div>
 	<?php } ?>
 	<header class="site-header">
 		<div class="big-wrapper">
@@ -107,14 +112,14 @@ $bscripts = $option_fields['body_scripts'];
 						<div class="menu-content">
 							<div class="main-menu">
 								<span class="header-menu-item">
-								<?php
+									<?php
 									wp_nav_menu(
 										array(
 											'theme_location' => 'main',
 											'fallback_cb' => 'menu_fallback',
 										)
 									);
-								?>
+									?>
 								</span>
 							</div>
 							<div class="header-btns">
@@ -137,11 +142,11 @@ $bscripts = $option_fields['body_scripts'];
 	</header>
 
 	<main id="content" class="site-content">
-	<?php
+		<?php
 		/**
 		 * Include masthead
 		 *
 		 * Contains masthead settings for each type and template for the theme
 		 */
 		// get_template_part( 'partials/masthead' );
-	?>
+		?>

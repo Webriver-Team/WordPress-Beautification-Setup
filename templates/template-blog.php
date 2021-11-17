@@ -9,37 +9,34 @@
  *
  * @package BaseTheme Package
  * @since 1.0.0
- *
  */
 
-// Include header
+// Include header.
 get_header();
 
-// Global variables
+// Global variables.
 global $option_fields;
-global $pID;
+global $p_id;
 global $fields;
 
 /**
  * Template Blog Masthead
- *
  */
 
- $basethemevar_pagetitle = (isset($fields['basethemevar_pagetitle'])) ? $fields['basethemevar_pagetitle'] : get_the_title();
+ $basethemevar_pagetitle = ( isset( $fields['basethemevar_pagetitle'] ) ) ? $fields['basethemevar_pagetitle'] : get_the_title();
 
 ?>
 
 <?php
 /**
  * Template Blog Masthead End
- *
  */
 ?>
 <?php
 	// WP_Query arguments
 	$args = array(
-		'post_type'              => array( 'post' ),
-		'posts_per_page'         => '-1',
+		'post_type'      => array( 'post' ),
+		'posts_per_page' => '-1',
 	);
 	// The Query
 	$query = new WP_Query( $args );
@@ -47,11 +44,11 @@ global $fields;
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
 			$query->the_post();
-		//Include specific template for the content.
-		get_template_part( 'partials/content', 'archive-post' );
+			// Include specific template for the content..
+			get_template_part( 'partials/content', 'archive-post' );
 
 		}
-	?>
+		?>
 	<div class="clear"></div>
 		<?php
 	} else {
@@ -60,10 +57,11 @@ global $fields;
 		get_template_part( 'partials/content', 'none' );
 	}
 
-	if (function_exists("glide_pagination")) {
-		glide_pagination($query->max_num_pages);
+	if ( function_exists( 'glide_pagination' ) ) {
+		glide_pagination( $query->max_num_pages );
 	}
 
-?>
+	?>
 
-<?php get_footer();
+<?php
+get_footer();

@@ -3,3 +3,6 @@ out/
 dist/
 test-fixtures/
 node_modules/
+/example/scss.scss
+# /example/css.css
+example/scss.scss

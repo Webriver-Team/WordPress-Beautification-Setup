@@ -34,20 +34,24 @@ input[type="text"] {
 
 // Incorrect Example
 
-#commentForm { /* Avoid camelcase. */
-    margin: 0;
+#commentForm {
+	/* Avoid camelcase. */
+	margin: 0;
 }
 
-#comment_form { /* Avoid underscores. */
-    margin: 0;
+#comment_form {
+	/* Avoid underscores. */
+	margin: 0;
 }
 
-div#comment_form { /* Avoid over-qualification. */
-    margin: 0;
+div#comment_form {
+	/* Avoid over-qualification. */
+	margin: 0;
 }
 
-#c1-xr { /* What is a c1-xr?! Use a better name. */
-
+#c1-xr {
+	/* What is a c1-xr?! Use a better name. */
+}
 
 // Similar to selectors, properties that are too specific will hinder the flexibility of the design. Less is more. Make sure you are not repeating styling or introducing fixed dimensions (when a fluid solution is more acceptable).
 
@@ -58,16 +62,31 @@ div#comment_form { /* Avoid over-qualification. */
 
 // Correct Example
 #selector-1 {
-    background: #fff;
-    display: block;
-    margin: 0;
-    margin-left: 20px;
+	background:                   #fff;
+	display: block;
+	background: url(../images/)		no-repeat	center		center;
+	margin: 0;
+	margin-left: 20px;
 }
 
 // Incorrect Example
 #selector-1 {
-    background:#FFFFFF;
-    display: BLOCK;
-    margin-left: 20PX;
-    margin: 0;
+	background: #ffffff;
+	display: BLOCK;
+	margin-left: 20px;
+	margin: 0;
+}
+/**
+*
+* Stylelint testing
+*
+*/
+.navbar {
+	/*THis is wrong */
+}
+.test * {
+	top: calc(1em+ 2em);
+}
+a {
+	color: #000;
 }

@@ -6,21 +6,19 @@
  *
  * @package BaseTheme Package
  * @since 1.0.0
- *
  */
 
-// Include header
+// Include header.
 get_header();
 
-// Global variables
+// Global variables.
 global $option_fields;
-global $pID;
+global $p_id;
 global $fields;
 
 
  /**
  * Single Post Masthead
- *
  */
 ?>
 	<section>
@@ -33,13 +31,15 @@ global $fields;
 			<a href="<?php the_permalink(); ?>">
 				<?php if ( has_post_thumbnail() ) { ?>
 					<div class="thumb">
-						<?php the_post_thumbnail(
+						<?php
+						the_post_thumbnail(
 							'thumb_1200',
 							array(
 								'alt'   => get_the_title(),
 								'title' => get_the_title(),
 							)
-						); ?>
+						);
+						?>
 					</div>
 				<?php } else { ?>
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/admin/defaults/default-image.webp"  class="" alt="<?php get_the_title(); ?>" title="<?php get_the_title(); ?>">
@@ -51,17 +51,19 @@ global $fields;
 <?php
 /**
  * Single Post Masthead End
- *
  */
 ?>
 <?php
-	while ( have_posts() ) : the_post();
+while ( have_posts() ) :
+	the_post();
 
-		//Include specific template for the content.
-		get_template_part( 'partials/content', get_post_type() );
+	// Include specific template for the content..
+	get_template_part( 'partials/content', get_post_type() );
 
-	endwhile; ?>
+	endwhile;
+?>
 
 	<div class="clear"></div>
 
-<?php get_footer();
+<?php
+get_footer();

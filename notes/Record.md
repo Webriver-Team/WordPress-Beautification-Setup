@@ -11,9 +11,13 @@
 * [ ] Check if all files have Linux based LF line endings not CRLF windows based line endings. Manages at 2 places EditorConfig and VSCode settings ("files.eol": "\n",)
 * [X] ~~*EditorConfig settings for package.json - Space size is not working*~~ [2021-11-11]
 * [ ] Check for HTML if the 'line-no-trailing-whitespace' rule of linthtmlrc makes conflict with any others like Prettier, VSCode settings or any other plugin/settings.
+* [ ] Implement and install VSCode extenstion [HTML CSS Support](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css)
 
 * FIXME:
-* [ ] Trailing space for all MD Files should not be present - It is managed at 2 places, EditorConfig file and VSCode settings ("files.trimTrailingWhitespace": false) .
+* [ ] Trailing space for all MD Files should not be present - It is managed at 2 places, EditorConfig file and VSCode settings ("files.trimTrailingWhitespace": false).
+* [ ] Updating the packages in `package.json` file using `npm update` doesn't updates the latest versions in `package.json` file itself. It will still stay outdated when the command `npm update` will be used. https://i.imgur.com/qY1huTL.png
+* [ ] Cannot set the value `"no-empty-source": false,` for `stylelintrs.json` file. Gives error that this method is not accepted, use null instead. https://i.imgur.com/49GuAGX.png
+* [ ] Cannot set the value `""length-zero-no-unit": false,` for `stylelintrs.json` file. Gives error that this method is not accepted, use null instead. https://i.imgur.com/49GuAGX.png
 
 * TODO: - Work later on
 * [ ] https://github.com/remarkjs/remark-lint#install
@@ -34,10 +38,84 @@
 * [ ] The Head and Body tag don't get indented as child of HTML tag. That causes issues of tab for linthtmlrc. Currently `"indent-width": 0` is set to 0 to avoid error on any level.
 * [ ] How to format all files that start with `.` for example `.eslintrc`, `.prettiersrc` etc
 * [ ] Add [Stickler](https://stickler-ci.com/docs) into github repo as a check when repo is pushed.
+* [ ] Added `example\scss.scss` file into `.prettierignore` file so that i can record all possible errors in this files.
+* [ ] Added `example\css.css` file into `.prettierignore` file so that i can record all possible errors in this files.
+
+TODO: - Things currently not implemented - Requires research
+* [ ] Stylelint - `function-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/function-allowed-list/)
+* [ ] Stylelint - `function-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/function-disallowed-list/)
+* [ ] Stylelint - `function-url-scheme-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/function-url-scheme-allowed-list/)
+* [ ] Stylelint - `function-url-scheme-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/function-url-scheme-disallowed-list/)
+* [ ] Stylelint - `time-min-milliseconds` function at [this link](https://stylelint.io/user-guide/rules/list/time-min-milliseconds/)
+* [ ] Stylelint - `unit-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/unit-allowed-list/)
+* [ ] Stylelint - `unit-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/unit-disallowed-list/)
+* [ ] Stylelint - `shorthand-property-no-redundant-values` function is set to track the error but it is nor working docs at [this link](https://stylelint.io/user-guide/rules/list/shorthand-property-no-redundant-values/)
+* [ ] Stylelint - `declaration-no-important` function is set to track the error but it is nor working docs at [this link](https://stylelint.io/user-guide/rules/list/declaration-no-important/)
+* [ ] Stylelint - `custom-property-pattern` function at [this link](https://stylelint.io/user-guide/rules/list/custom-property-pattern/)
+* [ ] Stylelint - `property-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/property-allowed-list/)
+* [ ] Stylelint - `property-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/property-disallowed-list/)
+* [ ] Stylelint - `declaration-property-unit-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/declaration-property-unit-allowed-list/)
+* [ ] Stylelint - `declaration-property-unit-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/declaration-property-unit-disallowed-list/)
+* [ ] Stylelint - `declaration-property-value-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/declaration-property-value-allowed-list/)
+* [ ] Stylelint - `declaration-property-value-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/declaration-property-value-disallowed-list/)
+* [ ] Stylelint - `selector-attribute-name-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/selector-attribute-name-disallowed-list/)
+* [ ] Stylelint - `selector-attribute-operator-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/selector-attribute-operator-allowed-list/)
+* [ ] Stylelint - `selector-attribute-operator-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/selector-attribute-operator-disallowed-list/)
+* [ ] Stylelint - `selector-class-pattern` function at [this link](https://stylelint.io/user-guide/rules/list/selector-class-pattern/)
+* [ ] Stylelint - `selector-combinator-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/selector-combinator-allowed-list/)
+* [ ] Stylelint - `selector-combinator-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/selector-combinator-disallowed-list/)
+* [ ] Stylelint - `selector-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/selector-disallowed-list/)
+* [ ] Stylelint - `selector-id-pattern` function at [this link](https://stylelint.io/user-guide/rules/list/selector-id-pattern/)
+* [ ] Stylelint - `selector-max-attribute` function at [this link](https://stylelint.io/user-guide/rules/list/selector-max-attribute/)
+* [ ] Stylelint - `selector-max-class` function at [this link](https://stylelint.io/user-guide/rules/list/selector-max-class/)
+* [ ] Stylelint - `selector-max-combinators` function at [this link](https://stylelint.io/user-guide/rules/list/selector-max-combinators/)
+* [ ] Stylelint - `selector-max-compound-selectors` function at [this link](https://stylelint.io/user-guide/rules/list/selector-max-compound-selectors/)
+* [ ] Stylelint - `selector-max-id` function at [this link](https://stylelint.io/user-guide/rules/list/selector-max-id/)
+* [ ] Stylelint - `selector-max-pseudo-class` function at [this link](https://stylelint.io/user-guide/rules/list/selector-max-pseudo-class/)
+* [ ] Stylelint - `selector-max-specificity` function at [this link](https://stylelint.io/user-guide/rules/list/selector-max-specificity/)
+* [ ] Stylelint - `selector-max-type` function at [this link](https://stylelint.io/user-guide/rules/list/selector-max-type/)
+* [ ] Stylelint - `selector-max-universal` function at [this link](https://stylelint.io/user-guide/rules/list/selector-max-universal/)
+* [ ] Stylelint - `selector-nested-pattern` function at [this link](https://stylelint.io/user-guide/rules/list/selector-nested-pattern/)
+* [ ] Stylelint - `selector-pseudo-class-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/selector-pseudo-class-allowed-list/)
+* [ ] Stylelint - `selector-pseudo-class-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/selector-pseudo-class-disallowed-list/)
+* [ ] Stylelint - `selector-pseudo-element-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/selector-pseudo-element-allowed-list/)
+* [ ] Stylelint - `selector-pseudo-element-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/selector-pseudo-element-disallowed-list/)
+* [ ] Stylelint - `selector-pseudo-element-colon-notation` function at [this link](https://stylelint.io/user-guide/rules/list/selector-pseudo-element-colon-notation/)
+* [ ] Stylelint - `rule-selector-property-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/rule-selector-property-disallowed-list/)
+* [ ] Stylelint - `media-feature-name-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/media-feature-name-allowed-list/)
+* [ ] Stylelint - `media-feature-name-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/media-feature-name-disallowed-list/)
+* [ ] Stylelint - `media-feature-name-value-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/media-feature-name-value-allowed-list/) - **This maybe a good solution for some problems**
+* [ ] Stylelint - `custom-media-pattern` function at [this link](https://stylelint.io/user-guide/rules/list/custom-media-pattern/)
+* [ ] Stylelint - `at-rule-allowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/at-rule-allowed-list/)
+* [ ] Stylelint - `at-rule-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/at-rule-disallowed-list/)
+* [ ] Stylelint - `at-rule-property-required-list` function at [this link](https://stylelint.io/user-guide/rules/list/at-rule-property-required-list/)
+* [ ] Stylelint - `comment-pattern` function at [this link](https://stylelint.io/user-guide/rules/list/comment-pattern/)
+* [ ] Stylelint - `comment-word-disallowed-list` function at [this link](https://stylelint.io/user-guide/rules/list/comment-word-disallowed-list/) ***This can be used to filter our names of people working here. So that no one will be able to add their name to the list***
+* [ ] Stylelint - `max-nesting-depth` function at [this link](https://stylelint.io/user-guide/rules/list/max-nesting-depth/)
+* [ ] Stylelint - `color-hex-case` function at [this link](https://stylelint.io/user-guide/rules/list/color-hex-case/)
+* [ ] Stylelint - `color-hex-length` function at [this link](https://stylelint.io/user-guide/rules/list/color-hex-length/)
+* [ ] Stylelint - `font-family-name-quotes` function at [this link](https://stylelint.io/user-guide/rules/list/font-family-name-quotes/)
+* [ ] Stylelint - `function-comma-newline-after` function at [this link](https://stylelint.io/user-guide/rules/list/function-comma-newline-after/)
+* [ ] Stylelint - `function-comma-newline-before` function at [this link](https://stylelint.io/user-guide/rules/list/function-comma-newline-before/)
+
+TODO: - Values need to be changed in each project
+* [ ] Stylelint - `keyframes-name-pattern` in **.stylelintrc.json** file currently contains word ***foo-*** in it. Change it to name of current project E.g. ***engageware-***
 
 ## Ligatures
 
 * [X] ~~*Firacode font is used so that if you want `===` to look more like `≡`, `>=` to look more like `⩾`, or `!==` to look more like `≠`. [FiraCode Github](https://github.com/tonsky/FiraCode)*~~ [2021-11-11]
+
+## VSCode Extensions
+
+### 🚧 Extensions installed but it's settings not properly test and added to vscode settings
+
+* [ ] [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)
+* [ ] [CSS Peek](https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek)
+* [ ] [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
+
+### ✔️ Extensions installed and properly tested their settings and added required fields to vscode settings.
+
+
 
 
 ## .EditorConfig
@@ -331,8 +409,59 @@ These are set of rules that are required as WordPress coding standards.
 	* [ ] Rule tested in html test file
 
 
+## Stylelint
+
+### Ignore File
+
+* [X] ~~*Create a `.stylelintignore` file*~~ [2021-11-16]
+* [ ] Currently added css files to be ignored, need to remove this at the end of finalization
+* [X] ~~*Added JS files ignore so this doesn't  lint those files*~~ [2021-11-16]
+
+### CSS Linting
+
+* [X] ~~*Install Stylelint extension for VSCode*~~ [2021-11-15]
+* [X] ~~*install npm package called ***stylelint-config-standard*** using command `npm install --save-dev stylelint stylelint-config-standard`*~~ [2021-11-16]
+* [X] ~~*Add this package to `.stylelintrc.json` configuration file*~~ [2021-11-16]
+``` json
+{
+  "extends": "stylelint-config-standard"
+}
+```
+
+### SCSS / PostCSS Syntax / Other linting
+
+
+### Stylelint Rules
+
+These are the set of rules that have been applied in the `.stylelintrc.json` file accordint to the required fields by the Stylelint documentation.
+
 ## ESLint
 
 * [ ] Create eslintrc file.
 * [ ] Install [Eslint Config Prettier](https://github.com/prettier/eslint-config-prettier#installation)
 * [ ] Configure Eslint Config Prettier so that it doesn't conflicts with prettier configurations.
+
+
+## PHPCS & PHPCBF
+
+### Composer
+
+* [X] ~~*Install Composer*~~ [2021-11-17]
+* [X] ~~*Install composer reuired packages*~~ [2021-11-17]
+
+### Adding Composer Packages Globally
+
+* [X] ~~*PHP_CodeSniffer - `composer global require "squizlabs/php_codesniffer=*"`*~~ [2021-11-17]
+* [X] ~~*WordPress Coding Standards - `composer global require "wp-coding-standards/wpcs=*"`*~~ [2021-11-17]
+* [X] ~~*PHPCompatibility - `composer global require "phpcompatibility/phpcompatibility-wp=*"`*~~ [2021-11-17]
+* [X] ~~*Code Sniffer Composer - `composer global require "dealerdirect/phpcodesniffer-composer-installer=*"`*~~ [2021-11-17]
+* [X] ~~*WPThemeReview Standard for PHP_CodeSniffer - `composer global require wptrt/wpthemereview dealerdirect/phpcodesniffer-composer-installer=*"`*~~ [2021-11-17]
+* The output should look like this.
+```
+The installed coding standards are MySource, PEAR, PSR1, PSR12, PSR2, Squiz, Zend, PHPCompatibility, PHPCompatibilityParagonieRandomCompat, PHPCompatibilityParagonieSodiumCompat, PHPCompatibilityWP, WordPress, WordPress-Core, WordPress-Docs, WordPress-Extra and WPThemeReview
+```
+
+## Theme Sniffer WP Plugin
+
+* [X] ~~*Install the plugin using this [Github repo](https://github.com/WPTT/theme-sniffer#installation---development)*~~ [2021-11-17]
+* [X] ~~*Run the tests from the plugin*~~ [2021-11-17]
