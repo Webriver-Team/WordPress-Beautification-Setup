@@ -560,8 +560,8 @@ ol ol {
 	margin: 2rem 0 0 5rem;
 }
 
-li>ul,
-li>ol {
+li > ul,
+li > ol {
 	margin-bottom: 0;
 	margin-left: 2rem;
 }
@@ -633,7 +633,7 @@ blockquote p:after {
 }
 
 q {
-	quotes: "“""”";
+	quotes: "“" "”";
 	background-color: #ffffff;
 	border-radius: 3px;
 	padding: 0.4rem 0.5rem 0.5rem 3rem;
@@ -981,16 +981,16 @@ input[type="checkbox"] {
 	cursor: pointer;
 }
 
-input[type="checkbox"]+label {
+input[type="checkbox"] + label {
 	cursor: pointer;
 	font-weight: 400;
 }
 
-input[type="checkbox"]:checked+label:before {
+input[type="checkbox"]:checked + label:before {
 	opacity: 1;
 }
 
-input[type="checkbox"]:checked+label:after {
+input[type="checkbox"]:checked + label:after {
 	border: 1px solid;
 }
 
@@ -1383,7 +1383,7 @@ a img.aligncenter {
 
 .sticky:before {
 	content: "\f08d";
-	font-family: 'FontAwesome';
+	font-family: "FontAwesome";
 	position: absolute;
 	font-size: 24px;
 	font-size: 2.4rem;
@@ -1812,7 +1812,7 @@ header.shrink {
 >> Styles for desktop menu
 -------------------------------------------------*/
 @media (min-width: 1024px) {
-	.main-menu ul li:hover>ul {
+	.main-menu ul li:hover > ul {
 		opacity: 1;
 		visibility: visible;
 		overflow: visible;
@@ -2279,7 +2279,7 @@ header.shrink {
 		transition: all 0.3s ease-in-out;
 	}
 
-	li.menu-item-has-children.active>.submenu-icon:before {
+	li.menu-item-has-children.active > .submenu-icon:before {
 		height: 0;
 		top: 18px;
 	}
@@ -2609,7 +2609,10 @@ a.button:visited {
 .l-1 {
 	height: 30px;
 }
-
+article {
+	width: 10%;
+	float: left;
+}
 /*-------------------------------------------------
 >> Styles for Website Blocks
 -------------------------------------------------*/

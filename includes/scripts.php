@@ -25,7 +25,7 @@ DEFINE( 'assetDir', get_template_directory_uri() . '/assets' );
 
 // Define bundle version
 DEFINE( 'ASSET_VERSION_JS', filemtime( get_template_directory() . '/assets/js/bundle.js' ) );
-DEFINE( 'ASSET_VERSION_CSS', filemtime( get_template_directory() . '/assets/css/main.css' ) );
+DEFINE( 'ASSET_VERSION_CSS', filemtime( get_template_directory() . '/assets/css/bundle.css' ) );
 
 /**
  * Theme assets
@@ -35,7 +35,7 @@ DEFINE( 'ASSET_VERSION_CSS', filemtime( get_template_directory() . '/assets/css/
 function glide_assets() {
 
 	// Enqueue theme styles
-	wp_enqueue_style( 'glide-theme-stylesheet', assetDir . '/css/main.min.css?v=' . ASSET_VERSION_CSS, false, null );
+	wp_enqueue_style( 'glide-theme-stylesheet', assetDir . '/css/bundle.css?v=' . ASSET_VERSION_CSS, false, null );
 
 	// Eliminate the emoji script
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );

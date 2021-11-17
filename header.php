@@ -29,10 +29,10 @@ if ( function_exists( 'get_fields' ) ) {
 	$fields = get_fields_escaped( $p_id );
 }
 // Page Tags - Advanced custom fields variables
-$tracking = $option_fields['tracking_code'];
-$ccss     = $option_fields['custom_css'];
-$hscripts = $option_fields['head_scripts'];
-$bscripts = $option_fields['body_scripts'];
+$tracking = ( isset( $option_fields['tracking_code'] ) ) ? $option_fields['tracking_code'] : null;
+$ccss     = ( isset( $option_fields['custom_css'] ) ) ? $option_fields['custom_css'] : null;
+$hscripts = ( isset( $option_fields['head_scripts'] ) ) ? $option_fields['head_scripts'] : null;
+$bscripts = ( isset( $option_fields['body_scripts'] ) ) ? $option_fields['body_scripts'] : null;
 
 // Page variables - Advanced custom fields variables
 

@@ -369,11 +369,12 @@ a.button,a.button:visited{padding:20px 25px;display:inline-block;line-height:1;b
 .no-visible{visibility:hidden}
 .not-found{text-align:center;padding:50px 0}
 .error{text-align:center;margin:2rem 0;width:100%}
-.error .menu{margin:0}
+.error .menu,.error .menu2,.error .menu2,.error .menu2,.error .menu2{margin:0}
 .error ul li{display:inline-block;margin:0 0 0 20px;font-weight:700;padding:0}
-.error ul li:before{display:none}
+.error ul li:before,.error ul li:after{display:none}
 .error ul li a{padding:1rem;border-bottom:0}
-.error ul li a:hover{color:#000}
+.error ul li a:hover,.error ul li a:active{color:#000}
+.error ul li a:hover:focus,.error ul li a:active:focus{color:red}
 .error ul li ul{display:none}
 .404-form{margin-top:5rem}
 .404-form p{margin-bottom:2rem}

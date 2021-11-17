@@ -36,7 +36,6 @@ $fields = get_fields_escaped( $p_id );
 <?php
 
 // Schema Markup - ACF variables.
-$basethemevar_schema_check = $option_fields['basethemevar_schema_check'];
 $basethemevar_schema_check = ( isset( $option_fields['basethemevar_schema_check'] ) ) ? $option_fields['basethemevar_schema_check'] : null;
 if ( $basethemevar_schema_check ) {
 	$basethemevar_schema_business_name       = ( isset( $option_fields['basethemevar_schema_business_name'] ) ) ? $option_fields['basethemevar_schema_business_name'] : null;
@@ -61,35 +60,37 @@ if ( $basethemevar_schema_check ) {
 
 <footer>
 	<?php if ( $basethemevar_schema_check ) { ?>
-		<script type="application/ld+json">
-		{
-			"@context": "http://schema.org",
-			"@type": "<?php echo $basethemevar_schema_type; ?>",
-			"address": {
-				"@type": "PostalAddress",
-				"addressLocality": "<?php echo $basethemevar_schema_locality; ?>",
-				"addressRegion": "<?php echo $basethemevar_schema_region; ?>",
-				"postalCode": "<?php echo $basethemevar_schema_postal_code; ?>",
-				"streetAddress": "<?php echo $basethemevar_schema_street_address; ?>"
-			},
-			"hasMap": "<?php echo $basethemevar_schema_map_short_link; ?>",
-			"geo": {
-				"@type": "GeoCoordinates",
-				"latitude": "<?php echo $basethemevar_schema_latitude; ?>",
-				"longitude": "<?php echo $basethemevar_schema_longitude; ?>"
-			},
-			"name": "<?php echo $basethemevar_schema_business_name; ?>",
-			"openingHours": "<?php echo $basethemevar_schema_opening_hours; ?>",
-			"telephone": "<?php echo $basethemevar_schema_telephone; ?>",
-			"email": "<?php echo $basethemevar_schema_business_email; ?>",
-			"url": "<?php echo esc_url( home_url() ); ?>",
-			"image": "<?php echo $basethemevar_schema_business_logo; ?>",
-			"legalName": "<?php echo $basethemevar_schema_business_legal_name; ?>",
-			"priceRange": "<?php echo $basethemevar_schema_price_range; ?>"
-		}
-		</script>
+	<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "<?php echo $basethemevar_schema_type; ?>",
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "<?php echo $basethemevar_schema_locality; ?>",
+			"addressRegion": "<?php echo $basethemevar_schema_region; ?>",
+			"postalCode": "<?php echo $basethemevar_schema_postal_code; ?>",
+			"streetAddress": "<?php echo $basethemevar_schema_street_address; ?>"
+		},
+		"hasMap": "<?php echo $basethemevar_schema_map_short_link; ?>",
+		"geo": {
+			"@type": "GeoCoordinates",
+			"latitude": "<?php echo $basethemevar_schema_latitude; ?>",
+			"longitude": "<?php echo $basethemevar_schema_longitude; ?>"
+		},
+		"name": "<?php echo $basethemevar_schema_business_name; ?>",
+		"openingHours": "<?php echo $basethemevar_schema_opening_hours; ?>",
+		"telephone": "<?php echo $basethemevar_schema_telephone; ?>",
+		"email": "<?php echo $basethemevar_schema_business_email; ?>",
+		"url": "<?php echo esc_url( home_url() ); ?>",
+		"image": "<?php echo $basethemevar_schema_business_logo; ?>",
+		"legalName": "<?php echo $basethemevar_schema_business_legal_name; ?>",
+		"priceRange": "<?php echo $basethemevar_schema_price_range; ?>"
+	}
+	</script>
 	<?php } ?>
 </footer>
+
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/partials/site-scripts.js"></script>
 
 <?php wp_footer(); ?> </body>
 
