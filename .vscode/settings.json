@@ -4,8 +4,8 @@
 	// Font Settings
 	"editor.fontFamily": "Fira Code, Consolas, 'Courier New', monospace",
 	"editor.fontLigatures": true,
-	"editor.fontSize": 14, // he setted to 17 px
-	"terminal.integrated.fontSize": 13,
+	"editor.fontSize": 14,
+	"terminal.integrated.fontSize": 14,
 	"editor.lineHeight": 22,
 	"editor.fontWeight": "400",
 	"editor.letterSpacing": 0.5,
@@ -13,7 +13,7 @@
 	"editor.cursorBlinking": "solid",
 	"editor.cursorWidth": 4,
 	// UI Improvements
-	"explorer.openEditors.visible": 3,
+	"explorer.openEditors.visible": 10,
 	"editor.codeLens": true,
 	"explorer.confirmDragAndDrop": false,
 	"workbench.editor.enablePreview": false,
@@ -21,7 +21,7 @@
 	"editor.tabCompletion": "on",
 	"editor.quickSuggestionsDelay": 0,
 	"editor.multiCursorModifier": "ctrlCmd",
-	"workbench.panel.defaultLocation": "bottom",
+	"workbench.panel.defaultLocation": "right",
 	// WhiteSpace Commando Setup
 	"editor.renderWhitespace": "all",
 	// "files.trimTrailingWhitespace": true,
