@@ -1,11 +1,12 @@
 <?php
+
 /**
  * The template  displaying 404 pages (not found)
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
  * @package BaseTheme Package
- * @since 1.0.0
+ * @since   1.0.0
  */
 
 // Include header..
@@ -66,11 +67,17 @@ $basethemevar_error_search           = ( isset( $option_fields['basethemevar_err
 					<?php
 					if ( $basethemevar_error_menu_bottom_text ) {
 						?>
-					<?php echo $basethemevar_error_menu_bottom_text; ?><?php } ?>
+						<?php echo $basethemevar_error_menu_bottom_text; ?>
+						<?php
+					}
+					?>
 					<?php
 					if ( 1 !== $basethemevar_error_search ) {
 						?>
-					<?php get_search_form(); ?><?php } ?>
+						<?php get_search_form(); ?>
+						<?php
+					}
+					?>
 				</div>
 				<!--404-form-->
 			</div><!-- .page-content -->

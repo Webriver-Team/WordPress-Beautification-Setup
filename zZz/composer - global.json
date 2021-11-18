@@ -1,0 +1,9 @@
+{
+    "require": {
+        "squizlabs/php_codesniffer": "*",
+        "wp-coding-standards/wpcs": "*",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "wptrt/wpthemereview": "^0.2.1"
+    }
+}

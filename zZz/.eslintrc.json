@@ -1,0 +1,3 @@
+{
+	"extends": ["plugin:@wordpress/eslint-plugin/recommended", "plugin:prettier/recommended"]
+}

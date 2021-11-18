@@ -4,8 +4,9 @@
  */
 
 var myElements = document.querySelectorAll( '.animation' );
+// var count = people.length;
 
-jQuery( document ).on( 'scroll', function() {
+jQuery( document ).on( 'scroll', function( jQuery ) {
 	if ( 0 < jQuery( document ).scrollTop() ) {
 		jQuery( 'header, body' ).addClass( 'shrink' );
 	} else {
@@ -18,9 +19,14 @@ jQuery( document ).on( 'scroll', function() {
  * Triggered when document get's ready
  */
 jQuery( document ).ready( function( jQuery ) {
-/**
- * Toggle menu for mobile
- */
+	console.log( 'Log a debug level message.' );
+	console.warn( 'Log a warn level message.' );
+	console.error( 'Log an error level message.' );
+	console.log = foo();
+
+	/**
+	 * Toggle menu for mobile
+	 */
 	jQuery( '.menu-btn' ).click( function() {
 		jQuery( this ).toggleClass( 'active' );
 		jQuery( '.menu-overlay' ).toggleClass( 'open' );
@@ -56,13 +62,14 @@ jQuery( document ).ready( function( jQuery ) {
 			closestLi.addClass( 'active' );
 		}
 	} );
-	let myVar;
-	var count = people.length;
+
 	let enoughFood = count > sandwiches.length;
+
 	if ( enoughFood ) {
 		var count = sandwiches.length; // accidentally overriding the count variable
 		console.log( 'We have ' + count + ' sandwiches for everyone. Plenty for all!' );
 	}
+
 	// our count variable is no longer accurate
 	console.log( 'We have ' + count + ' people and ' + sandwiches.length + ' sandwiches!' );
 } );

@@ -440,6 +440,7 @@ These are the set of rules that have been applied in the `.stylelintrc.json` fil
 * [ ] Create eslintrc file.
 * [ ] Install [Eslint Config Prettier](https://github.com/prettier/eslint-config-prettier#installation)
 * [ ] Configure Eslint Config Prettier so that it doesn't conflicts with prettier configurations.
+* [ ] Set execution policy to unrestricted using this powershell command in Administrator mode `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted` at [this link](https://stackoverflow.com/questions/41117421/ps1-cannot-be-loaded-because-running-scripts-is-disabled-on-this-system)
 
 
 ## PHPCS & PHPCBF

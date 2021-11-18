@@ -1,0 +1,104 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+	{
+		"key": "alt+c alt+d",
+		"command": "php-docblock-generator.createDocBlock"
+	},
+	{
+		"key": "ctrl+.",
+		"command": "workbench.action.openSettings2"
+	},
+	{
+		"key": "ctrl+,",
+		"command": "workbench.action.openSettingsJson"
+	},
+	{
+		"key": "ctrl+r",
+		"command": "-workbench.action.reloadWindow",
+		"when": "isDevelopment"
+	},
+	{
+		"key": "alt+w",
+		"command": "macros.collaperAndClose"
+	},
+	{
+		"key": "ctrl+k ctrl+e",
+		"command": "workbench.files.action.collapseExplorerFolders"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "workbench.action.terminal.clear"
+	},
+	{
+		"key": "ctrl+shift+alt+g",
+		"command": "git.stageSelectedRanges"
+	},
+	{
+		"key": "ctrl+k ctrl+s",
+		"command": "workbench.action.openGlobalKeybindings"
+	},
+	{
+		"key": "ctrl+shift+a",
+		"command": "editor.emmet.action.wrapWithAbbreviation"
+	},
+	{
+		"key": "alt+b",
+		"command": "markdown.extension.editing.toggleBold",
+		"when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+	},
+	{
+		"key": "ctrl+b",
+		"command": "-markdown.extension.editing.toggleBold",
+		"when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+	},
+	{
+		"key": "ctrl+shift+alt+w",
+		"command": "spellright.addFromSelectionToUserDictionary"
+	},
+	{
+		"key": "ctrl+shift+s",
+		"command": "workbench.action.showAllSymbols"
+	},
+	{
+		"key": "ctrl+t",
+		"command": "-workbench.action.showAllSymbols"
+	},
+	{
+		"key": "ctrl+shift+alt+s",
+		"command": "workbench.action.files.saveAs"
+	},
+	{
+		"key": "ctrl+shift+s",
+		"command": "-workbench.action.files.saveAs"
+	},
+	{
+		"key": "ctrl+t",
+		"command": "workbench.action.terminal.new"
+	},
+	{
+		"key": "ctrl+shift+`",
+		"command": "-workbench.action.terminal.new"
+	},
+	{
+		"key": "ctrl+r ctrl+w",
+		"command": "workbench.action.reloadWindow"
+	},
+	{
+		"key": "ctrl+shift+alt+a",
+		"command": "spellright.addFromSelectionToWorkspaceDictionary"
+	},
+	{
+		"key": "ctrl+alt+k ctrl+alt+s",
+		"command": "extension.createSnippet"
+	},
+	{
+		"key": "tab",
+		"command": "markdown.extension.onTabKey",
+		"when": "editorTextFocus && !inlineSuggestionVisible && !editorReadonly && !editorTabMovesFocus && !hasOtherSuggestions && !hasSnippetCompletions && !inSnippetMode && !suggestWidgetVisible && editorLangId == 'markdown'"
+	},
+	{
+		"key": "tab",
+		"command": "-markdown.extension.onTabKey",
+		"when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !hasOtherSuggestions && !hasSnippetCompletions && !inSnippetMode && !suggestWidgetVisible && editorLangId == 'markdown'"
+	}
+]

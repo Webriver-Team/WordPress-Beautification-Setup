@@ -1,1432 +1,1432 @@
-// // color-no-invalid-hex
-// // Longhand hex colors can be either 6 or 8 (with alpha channel) hexadecimal characters. And their shorthand variants are 3 and 4 characters respectively.
-// // The following patterns are considered problems:
-// a.first {
-// 	color: #00;
-// }
-// a.second {
-// 	color: #fff1az;
-// }
-
-// a.third {
-// 	color: #12345aa;
-// }
-
-// // The following patterns are not considered problems:
-// a.fourth {
-// 	color: #000;
-// }
-// a.fifth {
-// 	color: #000f;
-// }
-// a.sixth {
-// 	color: #fff1a0;
-// }
-// a.seventh {
-// 	color: #123450aa;
-// }
-
-// /*!
-// 	indentation
-// */
-// // The following patterns are considered problems:
-// @media print {
-// a.eight {
-// background-position: top left,
-// top right;
-// }
-// }
-
-// /*!
-// 	font-family-no-duplicate-names
-// */
-// // The following patterns are considered problems:
-// a.ninth {
-// 	font-family: Times, serif;
-// }
-
-// a.tenth {
-// 	font: 1em "Arial", "sans-serif", sans-serif;
-// }
-
-// a.eleventh {
-// 	font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif;
-// }
-
-// // The following patterns are not considered problems:
-// a.twelfth {
-// 	font-family: Times, serif;
-// }
-
-// a.thirteenth {
-// 	font: 1em "Arial", "sans-serif", sans-serif;
-// }
-
-// a.fourteenth {
-// 	font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif;
-// }
-
-// /*
-// 	font-family-no-missing-generic-family-keyword
-// */
-// // The following patterns are considered problems:
-// a.fifteenth {
-// 	font-family: Helvetica, Arial, Verdana, Tahoma;
-// }
-
-// a.sixteenth {
-// 	font: 1em/1.3 Times;
-// }
-
-// // The following patterns are not considered problems:
-
-// a.seventeenth {
-// 	font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
-// }
-// a.eighteenth {
-// 	font: 1em/1.3 Times, serif, Apple Color Emoji;
-// }
-// a.nineteenth {
-// 	font: inherit;
-// }
-// a.twentieth {
-// 	font: caption;
-// }
-// a.twentyfirst {
-// 	font-family: var(--font-family-common);
-// }
-// a.twentysecond {
-// 	font-family: Helvetica, var(--font-family-common);
-// }
-// a.twentythird {
-// 	font-family: "General Sans", "Open sans", "Proxima Nova", "Vertana", Arial, var(--font-family-common);
-// }
-
-// /*!
-// 	named-grid-areas-no-invalid
-// */
-// // The following patterns are considered problems:
-
-// a.twentyfourth {
-// 	grid-template-areas: "";
-// }
-
-// a.twentyfifth {
-// 	grid-template-areas:
-// 		"a a a"
-// 		"b b b b";
-// }
-
-// a.twentysixth {
-// 	grid-template-areas:
-// 		"a a a"
-// 		"b b a";
-// }
-
-// /*!
-// 	function-calc-no-unspaced-operator
-// */
-// // The following patterns are considered problems:
-// a.twentyseventh {
-// 	top: calc(1px+2px);
-// }
-
-// a.twentyeighth {
-// 	top: calc(1px+ 2px);
-// }
-
-// // The following patterns are not considered problems:
-
-// a.twentyninth {
-// 	top: calc(1px + 2px);
-// }
-
-// a.thirty {
-// 	top: calc(calc(1em * 2) / 3);
-// }
-
-// a.thirtyone {
-// 	top: calc(var(--foo) + var(--bar));
-// }
-
-// a.thirtytwo {
-// 	top: calc(var(--foo) + var(--bar));
-// }
-
-// /*!
-// 	function-linear-gradient-no-nonstandard-direction
-// */
-// // The following patterns are considered problems:
-
-// .foo.first {
-// 	background: linear-gradient(top, #fff, #000);
-// }
-
-// .foo.second {
-// 	background: linear-gradient(bottom, #fff, #000);
-// }
-
-// .foo.third {
-// 	background: linear-gradient(left, #fff, #000);
-// }
-
-// .foo.fourth {
-// 	background: linear-gradient(45, #fff, #000);
-// }
-
-// .foo.fifth {
-// 	background: linear-gradient(to top top, #fff, #000);
-// }
-
-// // The following patterns are not considered problems:
-
-// .foo {
-// 	background: linear-gradient(to top, #fff, #000);
-// }
-
-// .foo {
-// 	background: linear-gradient(to bottom right, #fff, #000);
-// }
-
-// .foo {
-// 	background: linear-gradient(45deg, #fff, #000);
-// }
-
-// .foo {
-// 	background: linear-gradient(1.57rad, #fff, #000);
-// }
-
-// /* Direction defaults to "to bottom" */
-// .foo {
-// 	background: linear-gradient(#fff, #000);
-// }
-
-// /*!
-// 	string-no-newline
-// */
-// // The following patterns are considered problems:
-
-// a.thirtythree {
-// 	content: "first
-// 	  second";
-// }
-
-// [title="something
-//   is probably wrong"] {
-// }
-
-// a.thirtyfour {
-// 	font-family: "Times
-// 	  New
-// 	  Roman";
-// }
-
-// // The following patterns are not considered problems:
-
-// a.thirtyfive {
-// 	content: "first\Asecond";
-// }
-
-// a.thirtysix {
-// 	content: "first\\nsecond";
-// }
-
-// [title="nothing\
-// 	is wrong"] {
-// }
-
-// a.thirtyseven {
-// 	font-family: "Times New Roman";
-// }
-
-
-// /*!
-// 	unit-no-unknown
-// */
-// a.thirtyeight {
-// 	width: 10pixels;
-// }
-
-// a.thirtynine {
-// 	width: calc(10px + 10pixels);
-// }
-
-// // The following patterns are considered problems:
-
-// a.fourty {
-// 	width: 10px;
-// }
-
-// a.fourtyone {
-// 	width: 10px;
-// }
-
-// a.fourtytwo {
-// 	width: 10px;
-// }
-
-// a.fourtythree {
-// 	width: calc(10px + 10px);
-// }
-
-// /*
-// 	custom-property-no-missing-var-function
-// */
-// // The following patterns are considered problems:
-// :root {
-// 	--foo: red;
-// }
-
-// a.fourtyfour {
-// 	color: --foo;
-// }
-
-// @property --foo {
-
-// }
-
-// a.fourtyfive {
-// 	color: --foo;
-// }
-
-// // The following patterns are not considered problems:
-
-// :root {
-// 	--foo: red;
-// }
-
-// a.fourtysix {
-// 	color: var(--foo);
-// }
-
-// @property --foo {
-// }
-
-// a.fourtyseven {
-// 	color: var(--foo);
-// }
-
-// /*!
-// 	property-no-unknown
-// */
-// // The following patterns are considered problems:
-// a.fourtyeight {
-// 	colr: blue;
-// }
-
-// a.fourtynine {
-// 	my-property: 1;
-// }
-
-// // The following patterns are not considered problems:
-
-// a.fifty {
-// 	color: green;
-// }
-
-// a.fiftyone {
-// 	fill: black;
-// }
-
-// a.fiftytwo {
-// 	-moz-align-self: center;
-// }
-
-// a.fiftythree {
-// 	-webkit-align-self: center;
-// }
-
-// a.fiftyfour {
-// 	align-self: center;
-// }
-
-
-// /*!
-// 	keyframe-declaration-no-important
-// */
-// // The following patterns are considered problems:
-// @keyframes foo {
-// 	from {
-// 		opacity: 0;
-// 	}
-// 	to {
-// 		opacity: 1 !important;
-// 	}
-// }
-
-// // The following patterns are not considered problems:
-// @keyframes foo {
-// 	from {
-// 		opacity: 0;
-// 	}
-// 	to {
-// 		opacity: 1;
-// 	}
-// }
-
-// /*!
-// 	declaration-block-no-duplicate-custom-properties
-// */
-// // The following patterns are considered problems:
-// a.fiftyfive {
-// 	--custom-property: pink;
-// 	--custom-property: orange;
-// }
-
-// a.fiftysix {
-// 	--custom-property: pink;
-// 	background: orange;
-// 	--custom-property: orange;
-// }
-
-// // The following patterns are not considered problems:
-// a.fiftyseven {
-// 	--custom-property: pink;
-// }
-
-// a.fiftyeight {
-// 	--custom-property: pink;
-// 	--cUstOm-prOpErtY: orange;
-// }
-
-// /*!
-// 	declaration-block-no-duplicate-properties
-// */
-// // The following patterns are considered problems:
-
-// a.fiftynine {
-// 	color: pink;
-// 	color: orange;
-// }
-
-// a.sixty {
-// 	color: pink;
-// 	background: orange;
-// 	color: orange;
-// }
-
-// // The following patterns are not considered problems:
-
-// a.sixtyone {
-// 	color: pink;
-// }
-
-// a.sixtytwo {
-// 	color: pink;
-// 	background: orange;
-// }
-
-// /*!
-// 	declaration-block-no-shorthand-property-overrides
-// */
-// // The following patterns are considered problems:
-
-// a.sixtythree {
-// 	padding-left: 10px;
-// 	padding: 20px;
-// }
-
-// a.sixtyfour {
-// 	transition-property: opacity;
-// 	transition: opacity 1s linear;
-// }
-
-// a.sixtyfive {
-// 	-webkit-transition-property: opacity;
-// 	-webkit-transition: opacity 1s linear;
-// }
-
-// a.sixtysix {
-// 	border-top-width: 1px;
-// 	top: 0;
-// 	bottom: 3px;
-// 	border: 2px solid blue;
-// }
-
-// // The following patterns are not considered problems:
-
-// a.sixtyseven {
-// 	padding: 10px;
-// 	padding-left: 20px;
-// }
-
-// a.sixtyeight {
-// 	transition-property: opacity;
-// }
-
-// a.sixtynine {
-// 	transition: opacity 1s linear;
-// }
-
-// a.seventy {
-// 	transition-property: opacity;
-// 	-webkit-transition: opacity 1s linear;
-// }
-
-// /*!
-// 	block-no-empty
-// */
-// // The following patterns are considered problems:
-// a.seventyone {
-// }
-
-// a.seventytwo {
-// }
-
-// @media print {
-
-// 	a.seventythree {
-// 	}
-
-// }
-
-// // The following patterns are not considered problems:
-
-// a.seventyfour {
-// 	/* foo */
-// }
-
-// @media print {
-
-// 	a.seventyfive {
-// 		color: pink;
-// 	}
-
-// }
-
-
-// /*!
-// 	selector-pseudo-class-no-unknown
-// */
-// // The following patterns are considered problems:
-
-// a:unknown {
-// }
-
-// a:unknown {
-// }
-
-// a:hoverr {
-// }
-
-// // The following patterns are not considered problems:
-
-// a:hover {
-// }
+// color-no-invalid-hex
+// Longhand hex colors can be either 6 or 8 (with alpha channel) hexadecimal characters. And their shorthand variants are 3 and 4 characters respectively.
+// The following patterns are considered problems:
+a.first {
+	color: #00;
+}
+a.second {
+	color: #fff1az;
+}
+
+a.third {
+	color: #12345aa;
+}
+
+// The following patterns are not considered problems:
+a.fourth {
+	color: #000;
+}
+a.fifth {
+	color: #000f;
+}
+a.sixth {
+	color: #fff1a0;
+}
+a.seventh {
+	color: #123450aa;
+}
+
+/*!
+	indentation
+*/
+// The following patterns are considered problems:
+@media print {
+a.eight {
+background-position: top left,
+top right;
+}
+}
+
+/*!
+	font-family-no-duplicate-names
+*/
+// The following patterns are considered problems:
+a.ninth {
+	font-family: Times, serif;
+}
+
+a.tenth {
+	font: 1em "Arial", "sans-serif", sans-serif;
+}
+
+a.eleventh {
+	font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+// The following patterns are not considered problems:
+a.twelfth {
+	font-family: Times, serif;
+}
+
+a.thirteenth {
+	font: 1em "Arial", "sans-serif", sans-serif;
+}
+
+a.fourteenth {
+	font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/*
+	font-family-no-missing-generic-family-keyword
+*/
+// The following patterns are considered problems:
+a.fifteenth {
+	font-family: Helvetica, Arial, Verdana, Tahoma;
+}
+
+a.sixteenth {
+	font: 1em/1.3 Times;
+}
+
+// The following patterns are not considered problems:
+
+a.seventeenth {
+	font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+}
+a.eighteenth {
+	font: 1em/1.3 Times, serif, Apple Color Emoji;
+}
+a.nineteenth {
+	font: inherit;
+}
+a.twentieth {
+	font: caption;
+}
+a.twentyfirst {
+	font-family: var(--font-family-common);
+}
+a.twentysecond {
+	font-family: Helvetica, var(--font-family-common);
+}
+a.twentythird {
+	font-family: "General Sans", "Open sans", "Proxima Nova", "Vertana", Arial, var(--font-family-common);
+}
+
+/*!
+	named-grid-areas-no-invalid
+*/
+// The following patterns are considered problems:
+
+a.twentyfourth {
+	grid-template-areas: "";
+}
+
+a.twentyfifth {
+	grid-template-areas:
+		"a a a"
+		"b b b b";
+}
+
+a.twentysixth {
+	grid-template-areas:
+		"a a a"
+		"b b a";
+}
+
+/*!
+	function-calc-no-unspaced-operator
+*/
+// The following patterns are considered problems:
+a.twentyseventh {
+	top: calc(1px+2px);
+}
+
+a.twentyeighth {
+	top: calc(1px+ 2px);
+}
+
+// The following patterns are not considered problems:
+
+a.twentyninth {
+	top: calc(1px + 2px);
+}
+
+a.thirty {
+	top: calc(calc(1em * 2) / 3);
+}
+
+a.thirtyone {
+	top: calc(var(--foo) + var(--bar));
+}
+
+a.thirtytwo {
+	top: calc(var(--foo) + var(--bar));
+}
+
+/*!
+	function-linear-gradient-no-nonstandard-direction
+*/
+// The following patterns are considered problems:
+
+.foo.first {
+	background: linear-gradient(top, #fff, #000);
+}
+
+.foo.second {
+	background: linear-gradient(bottom, #fff, #000);
+}
+
+.foo.third {
+	background: linear-gradient(left, #fff, #000);
+}
+
+.foo.fourth {
+	background: linear-gradient(45, #fff, #000);
+}
+
+.foo.fifth {
+	background: linear-gradient(to top top, #fff, #000);
+}
+
+// The following patterns are not considered problems:
+
+.foo {
+	background: linear-gradient(to top, #fff, #000);
+}
+
+.foo {
+	background: linear-gradient(to bottom right, #fff, #000);
+}
+
+.foo {
+	background: linear-gradient(45deg, #fff, #000);
+}
+
+.foo {
+	background: linear-gradient(1.57rad, #fff, #000);
+}
+
+/* Direction defaults to "to bottom" */
+.foo {
+	background: linear-gradient(#fff, #000);
+}
+
+/*!
+	string-no-newline
+*/
+// The following patterns are considered problems:
+
+a.thirtythree {
+	content: "first
+	  second";
+}
+
+[title="something
+  is probably wrong"] {
+}
+
+a.thirtyfour {
+	font-family: "Times
+	  New
+	  Roman";
+}
+
+// The following patterns are not considered problems:
+
+a.thirtyfive {
+	content: "first\Asecond";
+}
+
+a.thirtysix {
+	content: "first\\nsecond";
+}
+
+[title="nothing\
+	is wrong"] {
+}
+
+a.thirtyseven {
+	font-family: "Times New Roman";
+}
+
+
+/*!
+	unit-no-unknown
+*/
+a.thirtyeight {
+	width: 10pixels;
+}
+
+a.thirtynine {
+	width: calc(10px + 10pixels);
+}
+
+// The following patterns are considered problems:
+
+a.fourty {
+	width: 10px;
+}
+
+a.fourtyone {
+	width: 10px;
+}
+
+a.fourtytwo {
+	width: 10px;
+}
+
+a.fourtythree {
+	width: calc(10px + 10px);
+}
+
+/*
+	custom-property-no-missing-var-function
+*/
+// The following patterns are considered problems:
+:root {
+	--foo: red;
+}
+
+a.fourtyfour {
+	color: --foo;
+}
+
+@property --foo {
+
+}
+
+a.fourtyfive {
+	color: --foo;
+}
+
+// The following patterns are not considered problems:
+
+:root {
+	--foo: red;
+}
+
+a.fourtysix {
+	color: var(--foo);
+}
+
+@property --foo {
+}
+
+a.fourtyseven {
+	color: var(--foo);
+}
+
+/*!
+	property-no-unknown
+*/
+// The following patterns are considered problems:
+a.fourtyeight {
+	colr: blue;
+}
+
+a.fourtynine {
+	my-property: 1;
+}
+
+// The following patterns are not considered problems:
+
+a.fifty {
+	color: green;
+}
+
+a.fiftyone {
+	fill: black;
+}
+
+a.fiftytwo {
+	-moz-align-self: center;
+}
+
+a.fiftythree {
+	-webkit-align-self: center;
+}
+
+a.fiftyfour {
+	align-self: center;
+}
+
+
+/*!
+	keyframe-declaration-no-important
+*/
+// The following patterns are considered problems:
+@keyframes my-custom-text {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1 !important;
+	}
+}
+
+// The following patterns are not considered problems:
+@keyframes foo {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/*!
+	declaration-block-no-duplicate-custom-properties
+*/
+// The following patterns are considered problems:
+a.fiftyfive {
+	--custom-property: pink;
+	--custom-property: orange;
+}
+
+a.fiftysix {
+	--custom-property: pink;
+	background: orange;
+	--custom-property: orange;
+}
+
+// The following patterns are not considered problems:
+a.fiftyseven {
+	--custom-property: pink;
+}
+
+a.fiftyeight {
+	--custom-property: pink;
+	--cUstOm-prOpErtY: orange;
+}
+
+/*!
+	declaration-block-no-duplicate-properties
+*/
+// The following patterns are considered problems:
+
+a.fiftynine {
+	color: pink;
+	color: orange;
+}
+
+a.sixty {
+	color: pink;
+	background: orange;
+	color: orange;
+}
+
+// The following patterns are not considered problems:
+
+a.sixtyone {
+	color: pink;
+}
+
+a.sixtytwo {
+	color: pink;
+	background: orange;
+}
+
+/*!
+	declaration-block-no-shorthand-property-overrides
+*/
+// The following patterns are considered problems:
+
+a.sixtythree {
+	padding-left: 10px;
+	padding: 20px;
+}
+
+a.sixtyfour {
+	transition-property: opacity;
+	transition: opacity 1s linear;
+}
+
+a.sixtyfive {
+	-webkit-transition-property: opacity;
+	-webkit-transition: opacity 1s linear;
+}
+
+a.sixtysix {
+	border-top-width: 1px;
+	top: 0;
+	bottom: 3px;
+	border: 2px solid blue;
+}
+
+// The following patterns are not considered problems:
+
+a.sixtyseven {
+	padding: 10px;
+	padding-left: 20px;
+}
+
+a.sixtyeight {
+	transition-property: opacity;
+}
+
+a.sixtynine {
+	transition: opacity 1s linear;
+}
+
+a.seventy {
+	transition-property: opacity;
+	-webkit-transition: opacity 1s linear;
+}
+
+/*!
+	block-no-empty
+*/
+// The following patterns are considered problems:
+a.seventyone {
+}
+
+a.seventytwo {
+}
+
+@media print {
+
+	a.seventythree {
+	}
+
+}
+
+// The following patterns are not considered problems:
+
+a.seventyfour {
+	/* foo */
+}
+
+@media print {
+
+	a.seventyfive {
+		color: pink;
+	}
+
+}
+
+
+/*!
+	selector-pseudo-class-no-unknown
+*/
+// The following patterns are considered problems:
+
+a:unknown {
+}
+
+a:unknown {
+}
+
+a:hoverr {
+}
+
+// The following patterns are not considered problems:
+
+a:hover {
+}
 
-// a:focus {
-// }
+a:focus {
+}
 
-// :not(p) {
-// }
+:not(p) {
+}
 
-// input:-moz-placeholder {
-// }
+input:-moz-placeholder {
+}
 
-// /*!
-// 	selector-pseudo-element-no-unknown
-// */
-// // The following patterns are considered problems:
-// a::pseudo {
-// }
+/*!
+	selector-pseudo-element-no-unknown
+*/
+// The following patterns are considered problems:
+a::pseudo {
+}
 
-// a::pseudo {
-// }
+a::pseudo {
+}
 
-// a::element {
-// }
+a::element {
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a:before {
-// }
-// a::before {
-// }
-// ::selection {
-// }
-// input::-moz-placeholder {
-// }
+a:before {
+}
+a::before {
+}
+::selection {
+}
+input::-moz-placeholder {
+}
 
 
-// /*!
-// 	selector-type-no-unknown
-// */
-// // The following patterns are considered problems:
+/*!
+	selector-type-no-unknown
+*/
+// The following patterns are considered problems:
 
-// unknown {
-// }
+unknown {
+}
 
-// tag {
-// }
+tag {
+}
 
-// // The following patterns are not considered problems:
-// input {
-// }
+// The following patterns are not considered problems:
+input {
+}
 
-// ul li {
-// }
+ul li {
+}
 
-// li > a {
-// }
+li > a {
+}
 
-// /*
-// 	media-feature-name-no-unknown
-// */
-// // The following patterns are considered problems:
-// @media screen and (unknown) {
-// }
+/*
+	media-feature-name-no-unknown
+*/
+// The following patterns are considered problems:
+@media screen and (unknown) {
+}
 
-// @media screen and (unknown: 10px) {
-// }
+@media screen and (unknown: 10px) {
+}
 
-// @media screen and (unknown > 10px) {
-// }
+@media screen and (unknown > 10px) {
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// @media all and (monochrome) {
-// }
+@media all and (monochrome) {
+}
 
-// @media (min-width: 700px) {
-// }
+@media (min-width: 700px) {
+}
 
-// @media (min-width: 700px) {
-// }
+@media (min-width: 700px) {
+}
 
-// @media (min-width: 700px) and (orientation: landscape) {
-// }
+@media (min-width: 700px) and (orientation: landscape) {
+}
 
-// @media (-webkit-min-device-pixel-ratio: 2) {
-// }
+@media (-webkit-min-device-pixel-ratio: 2) {
+}
 
 
-// /*
-//  * at-rule-no-unknown
-// */
-// // The following patterns are considered problems:
+/*
+ * at-rule-no-unknown
+*/
+// The following patterns are considered problems:
 
-// @unknown {
+@unknown {
 
-// }
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// @charset "UTF-8";
+@charset "UTF-8";
 
-// @charset "UTF-8";
+@charset "UTF-8";
 
-// @media (max-width: 960px) {
-// }
+@media (max-width: 960px) {
+}
 
-// @font-feature-values Font One {
+@font-feature-values Font One {
 
-// 	@styleset {
+	@styleset {
 
-// 	}
+	}
 
-// }
+}
 
 
-// /*
-//  * comment-no-empty
-// **/
-// // The following patterns are considered problems:
+/*
+ * comment-no-empty
+**/
+// The following patterns are considered problems:
 
-// /**/
+/**/
 
-// /* */
+/* */
 
-// /*
+/*
 
-//  */
+ */
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// /* comment */
+/* comment */
 
-// /*
-//  * Multi-line Comment
-// **/
+/*
+ * Multi-line Comment
+**/
 
 
 
-// /*
-//  * comment-no-empty
-// */
-// // The following patterns are considered problems:
+/*
+ * comment-no-empty
+*/
+// The following patterns are considered problems:
 
 
-// b a {
-// }
+b a {
+}
 
-// a {
-// }
+a {
+}
 
-// a + a {
-// }
+a + a {
+}
 
-// a {
-// }
+a {
+}
 
-// b > a[foo] {
-// }
+b > a[foo] {
+}
 
-// a[foo] {
-// }
+a[foo] {
+}
 
-// a {
+a {
 
-// 	& > b {
-// 	}
+	& > b {
+	}
 
-// }
+}
 
-// b {
-// }
+b {
+}
 
-// @media print {
+@media print {
 
-// 	#c a {
-// 	}
+	#c a {
+	}
 
-// 	a {
-// 	}
-// }
+	a {
+	}
+}
 
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// }
+a {
+}
 
-// b a {
-// }
+b a {
+}
 
-// a {
-// }
+a {
+}
 
-// a + a {
-// }
+a + a {
+}
 
-// a[foo] {
-// }
+a[foo] {
+}
 
-// b > a[foo] {
-// }
+b > a[foo] {
+}
 
-// b {
-// }
+b {
+}
 
-// a {
+a {
 
-// 	& > b {
+	& > b {
 
-// 	}
+	}
 
-// }
+}
 
-// a::before {
-// }
+a::before {
+}
 
-// a:hover::before {
-// }
+a:hover::before {
+}
 
-// a {
-// }
+a {
+}
 
-// a:hover {
-// }
+a:hover {
+}
 
-// @media print {
+@media print {
 
-// 	a {
-// 	}
+	a {
+	}
 
-// 	#c a {
-// 	}
+	#c a {
+	}
 
-// }
+}
 
-// a {
-// }
+a {
+}
 
-// @media print {
+@media print {
 
-// 	#baz a {
-// 	}
+	#baz a {
+	}
 
-// }
+}
 
-// /*
-//  * no-duplicate-at-import-rules
-// */
-// // The following patterns are considered problems:
+/*
+ * no-duplicate-at-import-rules
+*/
+// The following patterns are considered problems:
 
 
-// @import "a.css";
+@import "a.css";
 
-// @import "a.css";
+@import "a.css";
 
-// @import url("a.css");
+@import url("a.css");
 
-// @import url("a.css");
+@import url("a.css");
 
-// @import "a.css";
+@import "a.css";
 
-// @import "a.css";
+@import "a.css";
 
-// @import "a.css";
+@import "a.css";
 
-// @import "b.css";
+@import "b.css";
 
-// @import url(a.css);
+@import url(a.css);
 
 
-// // The following patterns are not considered problems:
-// @import "a.css";
+// The following patterns are not considered problems:
+@import "a.css";
 
-// @import "b.css";
+@import "b.css";
 
-// @import url('a.css') projection;
+@import url('a.css') projection;
 
-// @import url('a.css') tv;
+@import url('a.css') tv;
 
 
-// /*
-//  * no-duplicate-selectors
-// */
-// // The following patterns are considered problems:
+/*
+ * no-duplicate-selectors
+*/
+// The following patterns are considered problems:
 
-// .foo,
-// .bar,
-// .foo {
-// }
+.foo,
+.bar,
+.foo {
+}
 
-// .foo {
-// }
+.foo {
+}
 
-// .bar {
-// }
+.bar {
+}
 
-// .foo {
-// }
+.foo {
+}
 
-// .foo .bar {
-// }
+.foo .bar {
+}
 
-// .bar {
-// }
+.bar {
+}
 
-// .foo .bar {
-// }
+.foo .bar {
+}
 
-// @media (min-width: 10px) {
+@media (min-width: 10px) {
 
-// 	.foo {
-// 	}
+	.foo {
+	}
 
-// 	.foo {
-// 	}
+	.foo {
+	}
 
-// }
+}
 
-// .foo,
-// .bar {
-// }
+.foo,
+.bar {
+}
 
-// .bar,
-// .foo {
-// }
+.bar,
+.foo {
+}
 
-// a .foo,
-// b + .bar {
-// }
+a .foo,
+b + .bar {
+}
 
-// b + .bar,
-// a .foo {
-// }
+b + .bar,
+a .foo {
+}
 
-// a b {
-// }
+a b {
+}
 
-// a {
+a {
 
-// 	& b {
-// 	}
+	& b {
+	}
 
-// }
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// .foo {
-// }
+.foo {
+}
 
-// @media (min-width: 10px) {
+@media (min-width: 10px) {
 
-// 	.foo {
-// 	}
+	.foo {
+	}
 
-// }
+}
 
-// .foo {
+.foo {
 
-// 	.foo {
-// 	}
+	.foo {
+	}
 
-// }
+}
 
-// .foo {
-// }
+.foo {
+}
 
-// .bar {
-// }
+.bar {
+}
 
-// .foo .bar {
-// }
+.foo .bar {
+}
 
-// .bar .foo {
-// }
+.bar .foo {
+}
 
-// a b {
-// }
+a b {
+}
 
-// a {
+a {
 
-// 	& b,
-// 	& c {
-// 	}
+	& b,
+	& c {
+	}
 
-// }
+}
 
-// /*
-//  * no-extra-semicolons
-// */
-// // The following patterns are considered problems:
+/*
+ * no-extra-semicolons
+*/
+// The following patterns are considered problems:
 
-// @import "x.css";
+@import "x.css";
 
-// @import "x.css";
+@import "x.css";
 
-// a {
-// 	color: pink;
-// }
+a {
+	color: pink;
+}
 
-// a {
-// 	color: pink;
-// }
+a {
+	color: pink;
+}
 
-// a {
-// 	color: pink;
-// }
+a {
+	color: pink;
+}
 
-// a {
-// 	color: red;
-// }
+a {
+	color: red;
+}
 
-// b {
-// 	color: white;
-// }
+b {
+	color: white;
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// @import "x.css";
+@import "x.css";
 
-// a {
-// 	color: pink;
-// }
+a {
+	color: pink;
+}
 
-// /*
-//  * no-invalid-double-slash-comments
-// */
-// // The following patterns are considered problems:
+/*
+ * no-invalid-double-slash-comments
+*/
+// The following patterns are considered problems:
 
 
-// a {
-// 	//color: pink;
-// }
+a {
+	//color: pink;
+}
 
-// //a { color: pink; }
+//a { color: pink; }
 
-// // Comment {}
+// Comment {}
 
-// a {
-// 	color: pink;
-// }
+a {
+	color: pink;
+}
 
-// // the following pattern is not considered a problem:
+// the following pattern is not considered a problem:
 
-// a {
-// 	/* color: pink; */
-// }
+a {
+	/* color: pink; */
+}
 
-// /* a { color: pink;  } */
+/* a { color: pink;  } */
 
 
-// /*
-//  * no-invalid-position-at-import-rule
-// */
-// // The following patterns are considered problems:
+/*
+ * no-invalid-position-at-import-rule
+*/
+// The following patterns are considered problems:
 
-// a {}
-// @import 'foo.css';
+a {}
+@import 'foo.css';
 
-// @media print {}
-// @import 'foo.css';
+@media print {}
+@import 'foo.css';
 
-// // The following patterns are not considered problems:
-// @import 'foo.css';
-// a {}
+// The following patterns are not considered problems:
+@import 'foo.css';
+a {}
 
-// /* some comment */
-// @import 'foo.css';
+/* some comment */
+@import 'foo.css';
 
-// @charset 'utf-8';
-// @import 'foo.css';
+@charset 'utf-8';
+@import 'foo.css';
 
-// /*
-//  * alpha-value-notation
-// */
-// // The following patterns are considered problems:
+/*
+ * alpha-value-notation
+*/
+// The following patterns are considered problems:
 
-// a {
-// 	opacity: 50%;
-// }
+a {
+	opacity: 50%;
+}
 
-// a {
-// 	color: rgb(0 0 0 / 50%);
-// }
+a {
+	color: rgb(0 0 0 / 50%);
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	opacity: 0.5;
-// }
+a {
+	opacity: 0.5;
+}
 
-// a {
-// 	color: rgb(0 0 0 / 0.5);
-// }
+a {
+	color: rgb(0 0 0 / 0.5);
+}
 
-// /*
-//  * hue-degree-notation
-// */
-// // The following patterns are considered problems:
+/*
+ * hue-degree-notation
+*/
+// The following patterns are considered problems:
 
 
-// a {
-// 	color: hsl(198 28% 50%);
-// }
+a {
+	color: hsl(198 28% 50%);
+}
 
-// a {
-// 	color: lch(56.29% 19.86 10 / 15%);
-// }
+a {
+	color: lch(56.29% 19.86 10 / 15%);
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	color: hsl(198deg 28% 50%);
-// }
+a {
+	color: hsl(198deg 28% 50%);
+}
 
-// a {
-// 	color: lch(56.29% 19.86 10deg / 15%);
-// }
+a {
+	color: lch(56.29% 19.86 10deg / 15%);
+}
 
 
-// /*
-//  * color-function-notation
-// */
-// // The following patterns are considered problems:
+/*
+ * color-function-notation
+*/
+// The following patterns are considered problems:
 
-// a {
-// 	color: rgb(0, 0, 0);
-// }
+a {
+	color: rgb(0, 0, 0);
+}
 
-// a {
-// 	color: rgba(12, 122, 231, 0.2);
-// }
+a {
+	color: rgba(12, 122, 231, 0.2);
+}
 
-// a {
-// 	color: hsla(270, 60%, 50%, 15%);
-// }
+a {
+	color: hsla(270, 60%, 50%, 15%);
+}
 
-// a {
-// 	color: hsl(0.75turn, 60%, 70%);
-// }
+a {
+	color: hsl(0.75turn, 60%, 70%);
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	color: rgb(0 0 0);
-// }
+a {
+	color: rgb(0 0 0);
+}
 
-// a {
-// 	color: rgb(12 122 231 / 0.2);
-// }
+a {
+	color: rgb(12 122 231 / 0.2);
+}
 
-// a {
-// 	color: hsl(270 60% 50% / 15%);
-// }
+a {
+	color: hsl(270 60% 50% / 15%);
+}
 
-// a {
-// 	color: hsl(0.75turn 60% 70%);
-// }
+a {
+	color: hsl(0.75turn 60% 70%);
+}
 
-// /*
-//  * color-hex-alpha
-// */
-// // The following patterns are considered problems:
+/*
+ * color-hex-alpha
+*/
+// The following patterns are considered problems:
 
-// a {
-// 	color: #fffa;
-// }
+a {
+	color: #fffa;
+}
 
-// a {
-// 	color: #ffffffaa;
-// }
+a {
+	color: #ffffffaa;
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	color: #fff;
-// }
+a {
+	color: #fff;
+}
 
-// a {
-// 	color: #ffffff;
-// }
+a {
+	color: #ffffff;
+}
 
 
-// /*
-//  * color-hex-length
-// */
-// // The following patterns are considered problems:
+/*
+ * color-hex-length
+*/
+// The following patterns are considered problems:
 
-// a {
-// 	color: #000;
-// }
+a {
+	color: #000;
+}
 
-// a {
-// 	color: #f000;
-// }
+a {
+	color: #f000;
+}
 
-// a {
-// 	color: #ff000000;
-// }
+a {
+	color: #ff000000;
+}
 
-// a {
-// 	color: rgb(0, 0, 0);
-// }
+a {
+	color: rgb(0, 0, 0);
+}
 
-// a {
-// 	color: rgb(0%, 0%, 0%);
-// }
+a {
+	color: rgb(0%, 0%, 0%);
+}
 
-// a {
-// 	color: rgba(0, 0, 0, 0);
-// }
+a {
+	color: rgba(0, 0, 0, 0);
+}
 
-// a {
-// 	color: hsl(0, 0%, 0%);
-// }
+a {
+	color: hsl(0, 0%, 0%);
+}
 
-// a {
-// 	color: hwb(0, 0%, 100%);
-// }
+a {
+	color: hwb(0, 0%, 100%);
+}
 
-// a {
-// 	color: gray(0);
-// }
+a {
+	color: gray(0);
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	color: black;
-// }
+a {
+	color: black;
+}
 
-// a {
-// 	color: rgb(10, 0, 0);
-// }
+a {
+	color: rgb(10, 0, 0);
+}
 
-// a {
-// 	color: rgb(0, 0, 0, 0.5);
-// }
+a {
+	color: rgb(0, 0, 0, 0.5);
+}
 
-// /*
-//  * length-zero-no-unit
-// */
-// // The following patterns are considered problems:
+/*
+ * length-zero-no-unit
+*/
+// The following patterns are considered problems:
 
 
-// a {
-// 	top: 0px;
-// }
+a {
+	top: 0px;
+}
 
-// a {
-// 	top: 0em;
-// }
+a {
+	top: 0em;
+}
 
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	top: 0;
-// } /* no unit */
+a {
+	top: 0;
+} /* no unit */
 
-// a {
-// 	transition-delay: 0s;
-// } /* dimension */
+a {
+	transition-delay: 0s;
+} /* dimension */
 
-// a {
-// 	top: 2in;
-// }
+a {
+	top: 2in;
+}
 
-// a {
-// 	top: 1.001vh;
-// }
+a {
+	top: 1.001vh;
+}
 
-// /*
-//  * font-weight-notation
-// */
-// // The following patterns are considered problems:
+/*
+ * font-weight-notation
+*/
+// The following patterns are considered problems:
 
 
-// a {
-// 	font-weight: bold;
-// }
+a {
+	font-weight: bold;
+}
 
-// a {
-// 	font: italic normal 20px sans-serif;
-// }
+a {
+	font: italic normal 20px sans-serif;
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	font-weight: 700;
-// }
+a {
+	font-weight: 700;
+}
 
-// a {
-// 	font: italic 400 20px sans-serif;
-// }
+a {
+	font: italic 400 20px sans-serif;
+}
 
-// /*
-//  * function-url-no-scheme-relative
-// */
-// // The following patterns are considered problems:
-// a {
-// 	background: url("//www.google.com/file.jpg");
-// }
+/*
+ * function-url-no-scheme-relative
+*/
+// The following patterns are considered problems:
+a {
+	background: url("//www.google.com/file.jpg");
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	background: url("../file.jpg");
-// }
+a {
+	background: url("../file.jpg");
+}
 
-// a {
-// 	background: url("http://www.google.com/file.jpg");
-// }
+a {
+	background: url("http://www.google.com/file.jpg");
+}
 
-// a {
-// 	background: url("/path/to/file.jpg");
-// }
+a {
+	background: url("/path/to/file.jpg");
+}
 
-// /*
-//  * keyframes-name-pattern
-// */
-// // The following patterns are considered problems:
+/*
+ * keyframes-name-pattern
+*/
+// The following patterns are considered problems:
 
-// @keyframes foo {
-// }
-// @keyframes bar {
-// }
-// @keyframes FOO-bar {
-// }
+@keyframes foo {
+}
+@keyframes bar {
+}
+@keyframes FOO-bar {
+}
 
 
-// // The following patterns are not considered problems:
-// @keyframes foo-bar {
-// }
+// The following patterns are not considered problems:
+@keyframes foo-bar {
+}
 
 
-// /*
-//  * number-max-precision
-// */
-// // The following patterns are considered problems:
+/*
+ * number-max-precision
+*/
+// The following patterns are considered problems:
 
-// a {
-// 	top: 3.245px;
-// }
+a {
+	top: 3.245px;
+}
 
-// a {
-// 	top: 3.245634px;
-// }
+a {
+	top: 3.245634px;
+}
 
-// @media (min-width: 3.234em) {
-// }
+@media (min-width: 3.234em) {
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	top: 3.24px;
-// }
+a {
+	top: 3.24px;
+}
 
-// @media (min-width: 3.23em) {
-// }
+@media (min-width: 3.23em) {
+}
 
-// /*
-//  * shorthand-property-no-redundant-values
-// */
-// // The following patterns are considered problems:
+/*
+ * shorthand-property-no-redundant-values
+*/
+// The following patterns are considered problems:
 
-// a {
-// 	margin: 1px 1px;
-// }
+a {
+	margin: 1px 1px;
+}
 
-// a {
-// 	margin: 1px 1px 1px 1px;
-// }
+a {
+	margin: 1px 1px 1px 1px;
+}
 
-// a {
-// 	padding: 1px 2px 1px;
-// }
+a {
+	padding: 1px 2px 1px;
+}
 
-// a {
-// 	border-radius: 1px 2px 1px 2px;
-// }
+a {
+	border-radius: 1px 2px 1px 2px;
+}
 
-// a {
-// 	-webkit-border-radius: 1px 1px 1px 1px;
-// }
+a {
+	-webkit-border-radius: 1px 1px 1px 1px;
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	margin: 1px;
-// }
+a {
+	margin: 1px;
+}
 
-// a {
-// 	margin: 1px 1px 1px 2px;
-// }
+a {
+	margin: 1px 1px 1px 2px;
+}
 
-// a {
-// 	padding: 1px 1em 1pt 1pc;
-// }
+a {
+	padding: 1px 1em 1pt 1pc;
+}
 
-// a {
-// 	border-radius: 10px / 5px;
-// }
+a {
+	border-radius: 10px / 5px;
+}
 
-// /*
-//  * value-no-vendor-prefix
-// */
-// // The following patterns are considered problems:
+/*
+ * value-no-vendor-prefix
+*/
+// The following patterns are considered problems:
 
-// a {
-// 	display: -webkit-flex;
-// }
+a {
+	display: -webkit-flex;
+}
 
-// a {
-// 	max-width: -moz-max-content;
-// }
+a {
+	max-width: -moz-max-content;
+}
 
-// a {
-// 	background: -webkit-linear-gradient(bottom, #000, #fff);
-// }
+a {
+	background: -webkit-linear-gradient(bottom, #000, #fff);
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	display: flex;
-// }
+a {
+	display: flex;
+}
 
-// a {
-// 	max-width: max-content;
-// }
+a {
+	max-width: max-content;
+}
 
-// a {
-// 	background: linear-gradient(bottom, #000, #fff);
-// }
+a {
+	background: linear-gradient(bottom, #000, #fff);
+}
 
 
-// /*
-//  * property-no-vendor-prefix
-// */
-// // The following patterns are considered problems:
+/*
+ * property-no-vendor-prefix
+*/
+// The following patterns are considered problems:
 
-// a {
-// 	-webkit-transform: scale(1);
-// }
+a {
+	-webkit-transform: scale(1);
+}
 
-// a {
-// 	-moz-columns: 2;
-// }
+a {
+	-moz-columns: 2;
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	transform: scale(1);
-// }
+a {
+	transform: scale(1);
+}
 
-// a {
-// 	columns: 2;
-// }
+a {
+	columns: 2;
+}
 
-// a {
-// 	-webkit-touch-callout: none;
-// }
+a {
+	-webkit-touch-callout: none;
+}
 
 
-// /*
-//  * declaration-block-no-redundant-longhand-properties
-// */
-// // The following patterns are considered problems:
+/*
+ * declaration-block-no-redundant-longhand-properties
+*/
+// The following patterns are considered problems:
 
-// a {
-// 	margin-top: 1px;
-// 	margin-right: 2px;
-// 	margin-bottom: 3px;
-// 	margin-left: 4px;
-// }
+a {
+	margin-top: 1px;
+	margin-right: 2px;
+	margin-bottom: 3px;
+	margin-left: 4px;
+}
 
-// a {
-// 	font-style: italic;
-// 	font-variant: normal;
-// 	font-weight: bold;
-// 	font-stretch: normal;
-// 	font-size: 14px;
-// 	line-height: 1.2;
-// 	font-family: serif;
-// }
+a {
+	font-style: italic;
+	font-variant: normal;
+	font-weight: bold;
+	font-stretch: normal;
+	font-size: 14px;
+	line-height: 1.2;
+	font-family: serif;
+}
 
-// a {
-// 	-webkit-transition-property: top;
-// 	-webkit-transition-duration: 2s;
-// 	-webkit-transition-timing-function: ease;
-// 	-webkit-transition-delay: 0.5s;
-// }
+a {
+	-webkit-transition-property: top;
+	-webkit-transition-duration: 2s;
+	-webkit-transition-timing-function: ease;
+	-webkit-transition-delay: 0.5s;
+}
 
-// // The following patterns are not considered problems:
+// The following patterns are not considered problems:
 
-// a {
-// 	margin: 1px 2px 3px 4px;
-// }
+a {
+	margin: 1px 2px 3px 4px;
+}
 
-// a {
-// 	font: italic normal bold normal 14px/1.2 serif;
-// }
+a {
+	font: italic normal bold normal 14px/1.2 serif;
+}
 
-// a {
-// 	-webkit-transition: top 2s ease 0.5s;
-// }
+a {
+	-webkit-transition: top 2s ease 0.5s;
+}
 
-// a {
-// 	margin-top: 1px;
-// 	margin-right: 2px;
-// }
+a {
+	margin-top: 1px;
+	margin-right: 2px;
+}
 
-// a {
-// 	margin-top: 1px;
-// 	margin-right: 2px;
-// 	margin-bottom: 3px;
-// }
+a {
+	margin-top: 1px;
+	margin-right: 2px;
+	margin-bottom: 3px;
+}
 
 
 /*
@@ -1741,7 +1741,6 @@ a {
 a {
 	transform: translate(1, 1);
 }
-
 a {
 	transform: translate(1, 1);
 }
@@ -1754,7 +1753,6 @@ a {
 a {
 	transform: translate(1, 1);
 }
-
 a {
 	transform: translate(1, 1 );
 }

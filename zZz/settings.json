@@ -1,0 +1,214 @@
+{
+  "workbench.settings.editor": "json",
+  "workbench.settings.useSplitJSON": true,
+  //Font Settings
+  "editor.fontFamily": "Fira Code, Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "terminal.integrated.fontSize": 14,
+  "editor.lineHeight": 22, // 1.45 times of font size
+  "editor.fontWeight": "500",
+  "editor.letterSpacing": 0.5,
+  //Cursor setup
+  "editor.cursorBlinking": "solid",
+  "editor.cursorWidth": 4,
+  //UI Improvements
+  "breadcrumbs.enabled": true,
+  "editor.minimap.enabled": true,
+  "explorer.openEditors.visible": 10,
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.codeLens": true,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.editor.enablePreview": false,
+  "editor.snippetSuggestions": "top",
+  "editor.tabCompletion": "on",
+  "editor.quickSuggestionsDelay": 0,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "workbench.panel.defaultLocation": "bottom",
+  "terminal.integrated.macOptionIsMeta": true,
+  //WhiteSpace Commando Setup
+  "editor.renderWhitespace": "all",
+  "files.trimTrailingWhitespace": true,
+  "editor.trimAutoWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "files.insertFinalNewline": true,
+  // GiT Settings
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  //Formatting
+  "editor.detectIndentation": false,
+  "window.zoomLevel": 0,
+  "[html]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // CSS Settings
+  // "css.validate": false,
+  // "less.validate": false,
+  // "scss.validate": false,
+  "[css]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false
+    // "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[php]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "persoderlind.vscode-phpcbf"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // WPCS
+  //PHP CS
+  "phpcs.enable": true,
+  "phpcs.executablePath": "C:/Users/benna/AppData/Roaming/Composer/vendor/bin/phpcs.bat",
+  // "phpcs.standard": "./phpcs.xml",
+  //PHP CBF
+  "phpcbf.enable": true,
+  "phpcbf.executablePath": "C:/Users/benna/AppData/Roaming/Composer/vendor/bin/phpcbf.bat",
+  "phpcbf.onsave": true,
+  "phpcbf.documentFormattingProvider": true,
+  //   "phpcbf.standard": "./phpcs.xml",
+  // PHP Files.
+  // PHP/WORDPRESS
+  "saveAndRun": {
+    "commands": [
+      {
+        "match": "\\.php$",
+        "cmd": "phpcbf --standard='WordPress' ${file}",
+        "silent": false
+      },
+      {
+        "match": "\\.css$",
+        "cmd": "stylelint ${file} --fix",
+        "silent": false
+      },
+      {
+        "match": "\\.scss$",
+        "cmd": "stylelint --fix ${file}",
+        "silent": false
+      },
+      {
+        "match": "\\.js$",
+        "cmd": "eslint ${file} --fix",
+        "silent": false
+      }
+    ]
+  },
+  "blankLine.triggerOnSave": true,
+  "blankLine.languageIds": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "css",
+    "scss",
+    "html",
+    "htm"
+  ],
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/vendor": true
+  },
+  "files.eol": "\n",
+  "intelephense.rename.exclude": [
+    "**/vendor/**",
+    "**/node_modules/**",
+    "**/bower_components/**"
+  ],
+  "workbench.iconTheme": "material-icon-theme",
+  //macros
+  "macros": {
+    "collaperAndClose": [
+      "workbench.files.action.collapseExplorerFolders",
+      "workbench.action.closeAllEditors"
+    ]
+  },
+  "sync.gist": "1b2fea14d6540a91db6b4a950ea25eb7",
+  "git.ignoreMissingGitWarning": true,
+  "gitlens.advanced.messages": {
+    "suppressGitMissingWarning": true
+  },
+  "editor.formatOnSave": true,
+  "editor.linkedEditing": true,
+  "todohighlight.isEnable": true,
+  "mssql.connections": [
+    {
+      "server": "{{put-server-name-here}}",
+      "database": "{{put-database-name-here}}",
+      "user": "{{put-username-here}}",
+      "password": ""
+    }
+  ],
+  "editor.renderIndentGuides": false,
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#1073cf2d",
+    "editor.lineHighlightBorder": "#9fced11f"
+  },
+  "editor.wordWrap": "off",
+  "diffEditor.wordWrap": "on",
+  "tabnine.experimentalAutoImports": true,
+  "yaml.schemas": {
+    "file:///c%3A/Users/benna/.vscode/extensions/atlassian.atlascode-2.9.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "redhat.telemetry.enabled": false,
+  // ESLint Options
+  "eslint.format.enable": true,
+  "requireConfigFile": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "typescriptreact"
+  ],
+  "formattingToggle.affects": ["editor.formatOnSave"],
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": true,
+    "markdown": true
+  },
+  "phpformatter.composer": true,
+  "editor.insertSpaces": false,
+  "editor.tabSize": 4,
+  "html.format.contentUnformatted": "pre,code,textarea",
+  "html.format.endWithNewline": false,
+  "html.format.extraLiners": "head, body, /html",
+  "html.format.indentHandlebars": false,
+  "html.format.indentInnerHtml": false,
+  "html.format.maxPreserveNewLines": null,
+  "html.format.preserveNewLines": true,
+  "html.format.wrapLineLength": 120,
+  "html.format.wrapAttributes": "auto",
+  "phpstormFormatter.ideBinPath": "C:\\Program Files\\JetBrains\\PhpStorm 2021.2.3\\bin",
+  "workbench.colorTheme": "Enfocado Nature",
+  "javascript.validate.enable": false
+}
